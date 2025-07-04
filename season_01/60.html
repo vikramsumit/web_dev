@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Perform Work Without Redirect</title>
+</head>
+<body>
+
+<button id="performWork">Perform Work</button>
+
+<script>
+document.getElementById('performWork').addEventListener('click', function() {
+  // Simulating some work
+  for (let i = 0; i < 5; i++) {
+    console.log(`Work iteration ${i+1}`);
+  }
+
+  alert("Work completed!"); // You can replace this with any action you want to perform.
+});
+</script>
+
+</body>
+</html>

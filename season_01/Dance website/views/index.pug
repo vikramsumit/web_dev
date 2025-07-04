@@ -1,0 +1,59 @@
+//- index.pug
+doctype html 
+html 
+  head 
+    title Raju bhai Dance Academy
+    style 
+      include ../static/style.css 
+body 
+  nav#navbar
+      ul
+          div#logo
+              img(src="/static/img/logo.png")
+              | HDA
+          li #[a(href="/") Home]
+          li #[a(href="/") About]
+          li #[a(href="/") Services]
+          li #[a(href="/") Class Info]
+          li #[a(href="/contact") Contact us]
+
+  section#introsection
+      div#hoora 
+          img(src="/static/img/55.png")
+      div welcome to our new dance academy
+      div.small enterteinment entertainment and only entertainment
+
+  section#missionsection
+      h2 Our mission 
+      div.card
+          h3 Dance With perfection
+          div.card-box
+              div.card-img
+                  img(src="/static/img/1.png")
+              div.card-content    
+                   p This is the best dance academy of the universe
+
+      div.card
+          h3 Dance the way you like
+          div.card-box
+                div.card-img
+                    img(src="/static/img/2.png")
+                div.card-content
+                    p This is the best dance academy of the universe
+
+      div.card
+          h3 Expert dancer
+          div.card-box
+                div.card-img
+                    img(src="/static/img/3.png")
+
+                div.card-content
+                    p This is the best dance academy of the universe
+
+  section#sponsersection 
+      h2 section our sponser   
+
+  footer#footer    
+      footer section is here
+  script 
+    include ../static/index.js

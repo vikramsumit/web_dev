@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>interaction using alert, confirm and prompt</title>
+</head>
+<body>
+    <div class="container">
+        This is a page beautiful pg
+    </div>
+
+    <script>
+        //alert in a browser by js - does not return anything
+        alert("welcome to my kachra website");
+
+        let name = prompt("what is your name?", "");
+        console.log(name);
+
+        let deletepost = confirm("Do you really want to delete this post,dekh bhaiba aise mat kar");
+
+        //confirm in js
+        if(deletepost){
+            //code to delete post
+            console.log("your post has been deleted successfully");
+        }
+        
+        else{
+            //to cancel deletion
+            console.log("your post has not been deleted");
+        }
+        console.log(deletepost);
+    </script>
+</body>
+</html>

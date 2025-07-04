@@ -1,0 +1,107 @@
+/* style.css */
+
+/* Reset default margin and padding */
+
+/* style.css */
+
+/* style.css */
+
+.background-container {
+    background-image: url('aaa.jpg'); /* Replace with your image path */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 100vh; /* Adjust the height as needed */
+}
+
+.text-content {
+    background-color: rgba(255, 255, 255, 0.8); /* Background color for text container with some opacity */
+    padding: 20px;
+    max-width: 600px; /* Adjust as needed */
+    margin: 0 auto; /* Center the container horizontally */
+    text-align: center; /* Center the text */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Set a background color and font for the entire page */
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+  }
+  
+  /* Style the header */
+  header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+  }
+  
+  header h1 {
+    font-size: 36px;
+  }
+  
+  nav ul {
+    list-style: none;
+  }
+  
+  nav ul li {
+    display: inline;
+    margin: 0 10px;
+  }
+  
+  nav ul li a {
+    color: #ab2e2e;
+    text-decoration: none;
+    font-size: 18px;
+  }
+  
+  /* Style the main content sections */
+  main {
+    padding: 20px;
+  }
+  
+  section {
+    margin-bottom: 30px;
+  }
+  
+  h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  p {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  
+  /* Style the form */
+  form label, form textarea, form input {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 16px;
+  }
+  
+  form textarea {
+    height: 23px;
+    resize: none;
+  }
+  
+  form button {
+    background-color: #333;
+    color: #fff;
+    font-size: 16px;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  form button:hover {
+    background-color: #77a6b0;
+  }
+  

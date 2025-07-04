@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math object</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>This is math object tutorial</h1>
+    </div>
+    <script>
+        // printing maths objects
+        let m = Math;
+        console.log(m)
+
+        // PRINTING THE CONSTRAINTS FROM MATH OBJ
+        console.log("The value of math.E is ", Math.E)
+        console.log("The value of math.LN2 is ", Math.LN2)
+        console.log("The value of math.LN10 is ", Math.LN10)
+        console.log("The value of math.LOG2E is ", Math.LOG2E)
+        console.log("The value of math.LOG10E is ", Math.LOG10E)
+
+        E:2.718281828459045
+        LN2:0.6931471805599453
+        LN10:2.302585092994046
+        LOG2E
+        :
+        1.4426950408889634
+        LOG10E
+        :
+        0.4342944819032518
+        PI
+        :
+        3.141592653589793
+        SQRT1_2
+        :
+        0.7071067811865476
+        SQRT2
+        :
+        1.4142135623730951
+
+        //printing the function from math objects
+        let a = 36.2215445;
+        let b = 66;
+
+        console.log("the value of a and b is ", a, b);
+        console.log("the value of a and b rounded is ", Math.round(a), Math.round(b));
+
+        console.log("3 raised to the power 5 is ", Math.pow(3,5))
+        console.log("37 raised to the power 6 is ", Math.pow(37,6))
+        console.log("8 raised to the power 2 is ", Math.pow(8,2))
+        console.log("9 raised to the power 9 is ", Math.pow(9,9))
+        console.log(Math.pow(6,8))
+        console.log(Math.pow(6,2))
+
+        console.log("square root of 64 is ", Math.sqrt(36))
+        console.log("square root of 2555 is ", Math.sqrt(2555))
+        console.log("square root of 729 is ", Math.sqrt(729))
+        console.log( Math.sqrt(7429))
+        console.log( Math.sqrt(625))
+
+        //cell and floor
+        console.log("6.9 rounded up to nearest integer is ",Math.ceil(6.9))
+        console.log("4.9 rounded up to nearest integer is ",Math.floor(4.9))
+
+        //abs function
+        console.log("Absolute value of 5.66 is ",Math.abs(5.66))
+        console.log("Absolute value of -5.66 is ",Math.abs(-5.66))
+
+        //trigonometric function
+        console.log("The value of sin(pI) is", Math.sin(Math.pI/2))
+        console.log("The value of cos(60) is", Math.cos(60))
+        console.log("The value of tan(pI) is", Math.tan(Math.pI/2))
+       // console.log("The value of cot(pi) is", Math.cot(Math.pI/2))
+
+        // Min and Max function
+        console.log("Minimum value of 4,6,8,3 is", Math.min(4,6,8,3));
+        console.log("Minimum value of 54,156,68,83 is", Math.min(54,156,68,83));
+        console.log("Maximum value of 4,26,8,63 is", Math.max(4,26,8,63));
+        console.log("Maximum value of 74,56,98,73 is", Math.max(74,56,98,73));
+
+        //Generating a random number
+        let r = Math.random();
+        //Random number b/w (a,b) = a + (b-a)*Math.random()
+        let a1 = 0;
+        let b1 = 100;
+        let r0_100 = a1 + (b1-a1)*Math.random();
+        console.log("The random number is ",r)
+        console.log("The random number is ",r0_100)
+    </script>
+</body>
+
+</html>

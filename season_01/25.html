@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Box shadow and text shadow</title>
+    <style>
+        .container{
+            display: flex;
+        }
+
+        .card{
+            padding:12px 23px;
+            margin: 23px 12px;
+            border: 3px solid red;
+            background-color: aquamarine;
+            box-shadow: 7px 5px 25px 8px rgb(140, 94, 224);
+
+            /* box shadow; x y blur radius bos shadow  */
+            box-shadow: 4px 5px rgb(110, 110, 218), 5px 15px rgb(142, 214, 166);
+        }
+        /* -ve sighns do this in opposite direcn  */
+        .card h1{
+            text-shadow: 2px 1px 2px lightsalmon;
+            /* text-shadow: x y blur shadow lightsalmon; */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="card" id="card-1">
+            <h1> This is card-1 which contain ninformation</h1>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ad doloremque quas, numquam nostrum rerum dolore perspiciatis ea laudantium possimus amet harum eveniet dolor quod magnam vitae vel autem laboriosam quisquam.</p>
+        </div>
+        <div class="card" id="card-2">
+            <h1>This is card-2 which contain maximum information</h1>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ad doloremque quas, numquam nostrum rerum dolore perspiciatis ea laudantium possimus amet harum eveniet dolor quod magnam vitae vel autem laboriosam quisquam.</p>
+        </div>
+        <div class="card" id="card-3">
+            <h1>This is card-3 which is blank and it does not contain any information</h1>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ad doloremque quas, numquam nostrum rerum dolore perspiciatis ea laudantium possimus amet harum eveniet dolor quod magnam vitae vel autem laboriosam quisquam.</p>
+        </div>
+    </div>
+</body>
+
+</html>

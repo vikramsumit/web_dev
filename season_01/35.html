@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            display: grid;
+            grid-gap: 1rem;
+             grid-template-areas: 'navbar navbar navbar navbar'
+            'section section section aside'
+            'footer footer footer footer'; 
+        }
+         @media (max-width:382px){
+        body{
+            background-color: rgb(105, 224, 144);
+        }
+    }
+
+     @media (max-width:582px) and (min-width:382px){
+        body{
+            background-color: rgb(108, 113, 212);
+        }
+        } 
+
+     @media (max-width:882px) and (min-width:582px){
+        body{ 
+            background-color: rgb(235, 113, 231);
+        }
+        .container{
+            grid-template-areas: 'navbar navbar navbar navbar'
+            'section section section section'
+            'aside aside aside aside'
+            'footer footer footer footer'
+        }
+        span{
+            display: flex;
+        }
+     } 
+     @media (max-width:1082px) and (min-width:882px){
+        body{
+            background-color: rgb(215, 197, 91);
+        }
+     } 
+     .bdr{
+        border: 3px solid rgb(205, 80, 147);
+        padding: 23px;
+        background-color: blanchedalmond;
+     }
+     nav{
+        grid-area: navbar;
+     }
+
+     section{
+        grid-area: section;
+     }
+
+     aside{
+        grid-area: aside;
+     }
+
+     footer{
+        grid-area: footer;
+        text-align: center;
+     }
+    </style>
+</head>
+<body>
+    <span>Home</span>
+    <span>About</span>
+    <span>Services</span>
+    <span>Contact Us</span>
+   <div class="container">
+    <nav class="bdr">
+        Home About Content
+    </nav>
+    <section class="bdr">
+
+        <h2> This is css in hindi</h2>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Soluta perspiciatis nesciunt, aspernatur quisquam quam ad ipsam id voluptatem quibusdam rem consequuntur provident ab nulla fuga tempora et error magni omnis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum nostrum voluptatibus deleniti quas. Eius, nobis, debitis optio adipisci repellendus modi maiores illum nemo in doloribus deserunt rerum aliquid, veniam libero.</p>
+    </section>
+    <aside class="bdr">
+        <h1>More About us</h1>
+    </aside>
+    <footer class="bdr">Jaldi Waha se hato</footer>
+   </div>
+</body>
+</html>
