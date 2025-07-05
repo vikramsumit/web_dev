@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Before and after Pseudo selector</title>
+    <style>
+        body {
+            background-color: rgba(0, 0, 0, 0.819);
+            color: azure;
+            margin: 0px;
+            padding: 0px;
+           
+        }
+        header::before{
+            background: url(images/aaa.jpg) ;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.5;
+            z-index: -1;
+            content: "";
+        }
+
+        .navigation {
+            display: flex;
+            font-size: 25px;
+        }
+
+        li {
+            list-style: none;
+            padding: 25px 13px;
+        }
+
+        section {
+            height: 310px;
+            margin: 4px 125px;
+            display: flex;
+            flex-direction: column;
+            /* border: 3px solid rgb(236, 204, 114); */
+            align-items: center;
+            justify-content: center;
+        }
+
+        p {
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 4rem;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <ul class="navigation">
+                <li class="item">Home</li>
+                <li class="item">About</li>
+                <li class="item">Services</li>
+                <li class="item">Contact Us</li>
+            </ul>
+            <section>
+                <h1>Welcome to world of programmers</h1>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus tempora deserunt nesciunt.
+                    Voluptates atque ipsa dolorum sunt, mollitia ab est debitis id rem ex obcaecati, perspiciatis sed
+                    assumenda blanditiis tenetur juhdfuj dsjkgusf jkuedsf gb uds fdgfausd kugdfiusa isdtiu ewfdgiu
+                    veguif gfui kjfghaiufr vjh
+                </p>
+            </section>
+            <hr>
+        </nav>
+    </header>
+</body>
+
+</html>

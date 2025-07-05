@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>#{title}</title>
+    style
+        include style.css
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/">About</a></li>
+            <li><a href="/">Contact us</a></li>
+            <li><a href="/">E-mail us</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h1>This is first heading given here </h1>
+         <p> This is plain html using text
+            | #{content}
+        </p> 
+        <form action="/" method="post" id="Contact">
+            <input type="text" name="name" placeholder="Enter your name">
+            <input type="text" name="age" placeholder="Enter your age">
+            <input type="text" name="gender" placeholder="Enter your gender">
+            <textarea name="text" name="address" cols="30" rows="30" placeholder="ENTER YOUR ADDRESS"></textarea>
+            <textarea name="more" cols="30" rows="30" id="more" placeholder="More about you"></textarea>
+            <button class="btn">Submit</button>
+        </form>
+    </div>
+</body>
+
+</html>

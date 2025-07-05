@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            /* background: #4857c5; */
+            /* background-image: linear-gradient(to bottom right, #131312, #87CEEB); */
+            background-image: linear-gradient(to bottom right, #da5b90, #e27b5f, #69bada);
+        }
+
+        /* .btn-container {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+        } */
+
+        .hexagon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .btn-container p {
+            margin: 10px;
+            justify-content: center;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 44px;
+            font-family: 'Nunito', sans-serif;
+        }
+
+        button {
+            font-size: 66px;
+            padding: 80px 200px;
+            /* Adjust padding to increase button size */
+            /* margin-left: 446px; */
+            border-radius: 121px;
+        }
+
+        @media (max-width: 768px) {
+            .hexagon {
+                flex-direction: column;
+            }
+
+            button {
+                font-size: 44px;
+                padding: 40px 100px;
+                border-radius: 61px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>SELECT ACTION</h1>
+    <div class="hexagon">
+        <p><a href='/9'><button>Deliver</button></a></p>
+        <p><a href='/10'><button>Return</button></a></p>
+    </div>
+</body>
+
+</html>

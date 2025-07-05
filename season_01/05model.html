@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            /* background: #4857c5; */
+            /* background-image: linear-gradient(to bottom right, #131312, #87CEEB); */
+            background-image: linear-gradient(to bottom right, #da5b90, #e27b5f, #69bada);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        /* .btn-container {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+        } */
+
+        .hexagon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* background-image: linear-gradient(to bottom right, #2424c0, #dc4242); */
+        }
+
+        /* .btn-container p {
+            margin: 1000px;
+            justify-content: center;
+        } */
+
+        h1 {
+            text-align: center;
+            font-size: 44px;
+            font-family: 'Nunito', sans-serif;
+        }
+
+        button {
+            font-size: 66px;
+            padding: 80px 200px;
+            /* Adjust padding to increase button size */
+            /* margin-left: 446px; */
+            border-radius: 121px;
+            background-image: linear-gradient(to bottom right, #9494b2, #d4d84f);
+        }
+
+        @media (max-width: 768px) {
+            .hexagon {
+                flex-direction: column;
+            }
+
+            button {
+                font-size: 44px;
+                padding: 40px 100px;
+                border-radius: 61px;
+            }
+        }
+
+        .copyright {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            font-size: 12px;
+            color: #fff;
+        }
+
+        .help-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>SELECT ACTION</h1>
+    <div class="hexagon">
+        <p><a href='/9'><button>Deliver</button></a></p>
+        <p><a href='/10'><button>Return</button></a></p>
+    </div>
+
+    <div class="copyright">
+        &copy; 2023 kattapa
+    </div>
+
+    <p><a href='/help'><button class="help-button" onclick="redirectToHelpPage()">Help</button></a></p>
+
+    <!-- <script>
+        function redirectToHelpPage() {
+            window.location.href="https://youtube.com/"; 
+        }
+    </script> -->
+</body>
+
+</html>

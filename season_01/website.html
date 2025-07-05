@@ -1,0 +1,163 @@
+<html>
+<head>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            font-family: Arial, sans-serif;
+        }
+
+        .header {
+            height: 100px;
+            background-color: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            width: 200px;
+            height: 80px;
+        }
+
+        .nav {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav li {
+            margin: 0 10px;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .banner {
+            height: 500px;
+            background-image: url("banner.jpg");
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .banner h1 {
+            color: white;
+            font-size: 60px;
+            position: absolute;
+            bottom: 50px;
+            left: 50px;
+        }
+
+        .content {
+            padding: 50px 0;
+        }
+
+        .content h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .content p {
+            text-align: justify;
+            margin-bottom: 20px;
+            color: #666;
+        }
+
+        .content .row {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .content .col {
+            width: 33.33%;
+            padding: 10px;
+        }
+
+        .content .card {
+            height: 300px;
+            background-color: #f0f0f0;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .content .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .content .card h3 {
+            text-align: center;
+            margin-top: 10px;
+            color: #333;
+        }
+
+        .footer {
+            height: 100px;
+            background-color: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .footer p {
+            color: white;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="logo.png" alt="Logo" class="logo">
+            <ul class="nav">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Destinations</a></li>
+                <li><a href="#">Packages</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+        <div class="banner">
+            <h1>Explore the world with us</h1>
+        </div>
+        <div class="content">
+            <h2>Why choose us?</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis lorem eu lorem consequat aliquet. Quisque vitae nisl id nisi tincidunt tincidunt. Morbi quis leo quis lacus sagittis sagittis. Fusce sit amet semper sapien. Cras quis nunc sit amet nisl aliquam ullamcorper. Praesent quis augue quis eros luctus blandit. Donec quis lacus quis leo tincidunt malesuada.</p>
+            <div class="row">
+                <div class="col">
+                    <div class="card">
+                        <img src="paris.jpg" alt="Paris">
+                        <h3>Paris</h3>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card">
+                        <img src="newyork.jpg" alt="New York">
+                        <h3>New York</h3>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card">
+                        <img src="tokyo.jpg" alt="Tokyo">
+                        <h3>Tokyo</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <p>© 2023 Travel Agency. All rights reserved.</p>
+        </div>
+    </div>
+</body>
+</html>

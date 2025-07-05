@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON</title>
+</head>
+<body>
+    <div class="container">Here we will learn about jason</div>
+    <script>
+        let jsonobj = {
+            name: "raju bhai",
+            channel: "raju bhai ka dj",
+            friend: "chhota bheem",
+            food: "nariyal",
+        }
+        console.log(jsonobj);
+        let myjsonstr = JSON.stringify(jsonobj);
+        console.log(myjsonstr)
+
+        myjsondtr = myjsonstr.replace('raju bhai', 'lappu bhai');
+        console.log(myjsonstr)
+
+        newjsonobj = JSON.parse(myjsonstr);
+        console.log(newjsonobj)
+    </script>
+</body>
+</html>

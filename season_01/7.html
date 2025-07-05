@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My Web Page</title>
+	<style>
+		/* Style the child elements of the container */
+		.container > p {
+			font-size: 18px;
+			margin-bottom: 20px;
+		}
+		
+		/* Style the image */
+		img {
+			max-width: 100%;
+			height: auto;
+			display: block;
+			margin: 0 auto;
+			border: 1px solid #ccc;
+			padding: 10px;
+		}
+		
+		/* Style the audio player */
+		audio {
+			display: block;
+			margin: 0 auto;
+			margin-top: 20px;
+		}
+		
+		/* Style the play button */
+		audio::-webkit-media-controls-start-playback-button {
+			background-color: #1e88e5;
+			border-radius: 5px;
+			color: #fff;
+			padding: 10px;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<img src="https://www.example.com/my-image.jpg" alt="My Image">
+		<p>This is some text.</p>
+		<p>This is some more text.</p>
+		<audio controls>
+			<source src="https://www.example.com/my-audio.mp3" type="audio/mpeg">
+			Your browser does not support the audio element.
+		</audio>
+	</div>
+</body>
+</html>

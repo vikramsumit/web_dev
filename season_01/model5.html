@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hexagonal Button</title>
+    <style>
+        .hexagon {
+            width: 100px;
+            height: 58px;
+            background-color: #4CAF50;
+            position: relative;
+            margin: 29px 0;
+        }
+        .hexagon:before,
+        .hexagon:after {
+            content: "";
+            position: absolute;
+            width: 0;
+            border-left: 50px solid transparent;
+            border-right: 50px solid transparent;
+        }
+        .hexagon:before {
+            top: -29px;
+            border-bottom: 29px solid #4CAF50;
+        }
+        .hexagon:after {
+            bottom: -29px;
+            border-top: 29px solid #4CAF50;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="hexagon"></div>
+</body>
+
+</html>
