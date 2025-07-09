@@ -1,0 +1,18 @@
+.red{
+    text-decoration-color: rgb(184, 26, 26);
+ /* color: rgb(228, 13, 13); */
+}
+
+.bg-yellow{
+    background-color: yellow;
+}
+
+#firstdiv{
+    color: rgb(255, 5, 213);
+    text-decoration: aqua;
+    background-color: rgb(61, 57, 57);
+}
+
+#seconddiv {
+  color: blue;
+}
