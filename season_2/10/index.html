@@ -1,0 +1,192 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <video src="lovely.mp4" width="100%" controls muted poster="65.jpg"></video>
+    <audio src="uska.mp3" width="100%" controls>Your required song is</audio>
+    <svg height="100" width="100">
+    <circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red" />
+</svg>
+<img src="img.svg" alt="My SVG Image" width="100" height="100"> 
+    <img src="https://picsum.photos/200/300" alt="Random Image" width="200" height="300">
+    <img src="https://picsum.photos/seed/picsum/200/300" alt="Random Image with Seed" width="200" height="300">
+    <img src="https://picsum.photos/id/237/200/300" alt="Random Image with ID" width="200" height="300">
+    <img src="https://picsum.photos/200/300?grayscale" alt="Grayscale Image" width="200" height="300">
+    <img src="https://picsum.photos/200/300?blur=2" alt="Blurred Image" width="200" height="300">
+    <img src="https://picsum.photos/200/300?random=1" alt="Random Image with Random Query" width="200" height="300">
+    <img src="https://picsum.photos/200/300?width=200&height=300" alt="Image with Specific Dimensions" width="200" height="300">
+    <img src="https://picsum.photos/200/300?grayscale&blur=2" alt="Grayscale and Blurred Image" width="200" height="300">
+    <img src="https://picsum.photos/200/300?random=1&grayscale" alt="Random Grayscale Image" width="200" height="300">
+    <img src="https://picsum.photos/200/300?random=1&blur=2" alt="Random Blurred Image" width="200" height="300">
+    <img src="https://picsum.photos/200/300?random=1&width=200&height=300" alt="Random Image with Specific Dimensions" width="200" height="300">
+    <img src="https://picsum.photos/200/300?grayscale&blur=2&random=1" alt="Random Grayscale and Blurred Image" width="200" height="300">
+    <img src="https://picsum.photos/200/300?grayscale&blur=2&width=200&height=300" alt="Grayscale, Blurred, and Specific Dimensions Image" width="200" height="300">
+    <img src="https://picsum.photos/200/300?random=1&grayscale&blur=2" alt="Random Grayscale and Blurred Image with Specific Dimensions" width="200" height="300">
+    <img src="https://picsum.photos/200/300?random=1&grayscale&blur=2&width=200&height=300" alt="Random Grayscale, Blurred, and Specific Dimensions Image" width="200" height="300">
+    <img src="https://picsum.photos/200/300?random=1&grayscale&blur=2&width=200&height=300" alt="Random Grayscale, Blurred, and Specific Dimensions Image" width="200" height="300">
+
+    
+
+
+
+</body>
+</html> -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Slider</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="slider-container">
+        <button class="nav-button" id="prevBtn">&#8249;</button>
+        <img id="sliderImage" src="https://picsum.photos/200/300?random=1" alt="Slider Image">
+        <button class="nav-button" id="nextBtn">&#8250;</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mobile Image Slider</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f2f2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .slider-box {
+      position: relative;
+      width: 90vw;
+      max-width: 300px;
+      aspect-ratio: 2 / 3;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .slider-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 12px;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .nav-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0, 0, 0, 0.6);
+      color: #fff;
+      border: none;
+      font-size: 1.8rem;
+      padding: 0.4em 0.6em;
+      border-radius: 50%;
+      cursor: pointer;
+      z-index: 1;
+      user-select: none;
+    }
+
+    #prev {
+      left: 10px;
+    }
+
+    #next {
+      right: 10px;
+    }
+
+    .nav-btn:active {
+      background: rgba(0, 0, 0, 0.8);
+    }
+
+    @media (max-width: 480px) {
+      .nav-btn {
+        font-size: 1.5rem;
+        padding: 0.3em 0.5em;
+      }
+    }
+  </style>
+</head>
+<body>
+<!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/jfKfPfyJRdk" title="Lofi Girl - beats to relax/study to" frameborder="0" width="444" height="444"></iframe> -->
+
+    <button id="prev" class="nav-btn">&#8249;</button>
+    <img id="slider" src="https://picsum.photos/200/300" alt="Image Slider" />
+    <button id="next" class="nav-btn">&#8250;</button>
+  </div>
+
+  <script>
+    const imageUrls = [
+      "https://picsum.photos/200/300",
+      "https://picsum.photos/seed/picsum/200/300",
+      "https://picsum.photos/id/237/200/300",
+      "https://picsum.photos/200/300?grayscale",
+      "https://picsum.photos/200/300?blur=2",
+      "https://picsum.photos/200/300?random=1",
+      "https://picsum.photos/200/300?width=200&height=300",
+      "https://picsum.photos/200/300?grayscale&blur=2",
+      "https://picsum.photos/200/300?random=1&grayscale",
+      "https://picsum.photos/200/300?random=1&blur=2",
+      "https://picsum.photos/200/300?random=1&width=200&height=300",
+      "https://picsum.photos/200/300?grayscale&blur=2&random=1",
+      "https://picsum.photos/200/300?grayscale&blur=2&width=200&height=300",
+      "https://picsum.photos/200/300?random=1&grayscale&blur=2",
+      "https://picsum.photos/200/300?random=1&grayscale&blur=2&width=200&height=300"
+    ];
+
+    let current = 0;
+    const slider = document.getElementById('slider');
+
+    document.getElementById('next').addEventListener('click', () => {
+      current = (current + 1) % imageUrls.length;
+      slider.style.opacity = 0;
+      setTimeout(() => {
+        slider.src = imageUrls[current];
+        slider.style.opacity = 1;
+      }, 150);
+    });
+
+    document.getElementById('prev').addEventListener('click', () => {
+      current = (current - 1 + imageUrls.length) % imageUrls.length;
+      slider.style.opacity = 0;
+      setTimeout(() => {
+        slider.src = imageUrls[current];
+        slider.style.opacity = 1;
+      }, 150);
+    });
+  </script>
+
+  <iframe height="500" style="width: 100%;" scrolling="no" title="Image Slider" src="https://codepen.io/team/codepen/embed/preview/PNaGbb" frameborder="no" allowfullscreen></iframe>
+
+
+</body>
+</html>
+
