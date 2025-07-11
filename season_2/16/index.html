@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: lightblue;
+        }
+
+        div {
+            color: darkblue;
+            font-size: 20px;
+            margin: 10px;
+        }
+
+        .red {
+            color: red;
+        }
+
+        #blue {
+            color: blue;
+        }
+
+        #blue {
+            font-style: italic;
+        }
+
+        /* Child Selectors  */
+        div>p {
+            color: rgb(13, 160, 25);
+            background-color: rgb(214, 163, 163);
+        }
+
+        /* Descendant Selector  */
+        div p {
+            color: rgb(13, 160, 25);
+            background-color: rgb(214, 163, 163);
+        }
+
+        /* Universal Selector */
+        * {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Pseudo selectors */
+        a:visited {
+            color: yellow
+        }
+
+        a:link {
+            color: green;
+        }
+
+        a:active {
+            background-color: red;
+        }
+
+        a:hover {
+            background-color: yellow;
+        }
+
+        p:first-child {
+            background-color: rgb(180, 9, 103);
+        }
+
+        p:last-child {
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <main class="one">
+        <p>
+            I am first
+        </p>
+        <p>
+            I am second
+        </p>
+    </main>
+    <div class="red">
+        This one is first div
+        <p>This one is paragraph inside div</p>
+    </div>
+    <div id="blue">This one is second div</div>
+    <a href="https://www.google.com">Go to Google</a>
+    <a href="https://www.facebook2.com">Go to Facebook</a>
+</body>
+
+</html>
