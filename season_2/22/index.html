@@ -1,11 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            box-sizing: border-box;
+            border: 2px solid rgb(175, 10, 10);
+            /* width: 1920px; */
+            width: 80vw;
+            height: 10vh;
+            margin: 22px auto;
+            background-color: aquamarine;
+        }
+
+        .container {
+            box-sizing: border-box;
+            border: 2px solid black;
+            /* width: 2048px; */
+            width: 80vw;
+            /* height: 80vh; */
+            min-height: 35vh;
+            margin: 23px auto;
+            font-size: 15px;
+            background-color: rgb(187, 241, 223);
+        }
+
+        .container p {
+            /* margin: 10px; */
+            font-size: 1.5em;
+        }
+    </style>
 </head>
+
 <body>
-    
+    <div class="box">
+        <!-- This is block element -->
+        This is a box with a class.
+    </div>
+    <div class="container">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit consectetur in amet pariatur. Doloribus possimus
+        impedit ipsam voluptatibus eius voluptas omnis expedita nulla, soluta nam culpa commodi. Expedita facilis quo
+        quidem libero veritatis dolorum perspiciatis fuga, id in porro blanditiis? Quibusdam expedita modi tenetur?
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda aliquid molestias aliquam harum labore explicabo omnis unde. Blanditiis dolor officiis delectus unde est, ab ex ipsam sed iusto illum, non ipsa harum, quisquam distinctio deleniti neque maxime quas nulla facilis nostrum? Numquam, ipsum! Aspernatur qui velit eligendi fugiat odio, inventore iure libero animi sint magni!</p>
+    </div>
+    <span class="box">
+        <!-- This is inline element -->
+        This is a span with a class.
+    </span>
 </body>
+
 </html>
