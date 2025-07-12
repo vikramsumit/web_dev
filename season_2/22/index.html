@@ -11,6 +11,11 @@
             padding: 0;
         }
 
+        html {
+            /* font-size: 16px; */
+            font-size: 100%;
+        }
+
         .box {
             box-sizing: border-box;
             border: 2px solid rgb(175, 10, 10);
@@ -36,6 +41,19 @@
         .container p {
             /* margin: 10px; */
             font-size: 1.5em;
+            /* font-size: 1.5rem; this computes its font size based on the root element's font size. */
+        }
+
+        .mycount {
+            text-align: justify;
+            border: 2px solid rgb(207, 111, 111);
+            background-color: beige;
+            box-sizing: border-box;
+            margin: 23px auto;
+            color: rgb(0, 0, 0);
+            font-size: 22px;
+            /* width: 100vmin; */
+            width: 80vw;
         }
     </style>
 </head>
@@ -49,8 +67,17 @@
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit consectetur in amet pariatur. Doloribus possimus
         impedit ipsam voluptatibus eius voluptas omnis expedita nulla, soluta nam culpa commodi. Expedita facilis quo
         quidem libero veritatis dolorum perspiciatis fuga, id in porro blanditiis? Quibusdam expedita modi tenetur?
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda aliquid molestias aliquam harum labore explicabo omnis unde. Blanditiis dolor officiis delectus unde est, ab ex ipsam sed iusto illum, non ipsa harum, quisquam distinctio deleniti neque maxime quas nulla facilis nostrum? Numquam, ipsum! Aspernatur qui velit eligendi fugiat odio, inventore iure libero animi sint magni!</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda aliquid molestias aliquam harum labore
+            explicabo omnis unde. Blanditiis dolor officiis delectus unde est, ab ex ipsam sed iusto illum, non ipsa
+            harum, quisquam distinctio deleniti neque maxime quas nulla facilis nostrum? Numquam, ipsum! Aspernatur qui
+            velit eligendi fugiat odio, inventore iure libero animi sint magni!</p>
     </div>
+
+    <div class="mycount">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vel, perferendis dolores.
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatem similique deserunt ad tempore molestias doloribus sit vel praesentium ipsa! Adipisci modi saepe laudantium repellendus obcaecati expedita perspiciatis itaque vitae quasi.
+    </div>
+
     <span class="box">
         <!-- This is inline element -->
         This is a span with a class.
