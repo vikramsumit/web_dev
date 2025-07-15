@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CSS MultiColor Website</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+    :root {
+      --primary-color: #f163d3cc;
+      --box-color: #a9d7dbea;
+      --text-color: rgb(230, 227, 227);
+      --secondary-color: #df87a9cc;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: var(--secondary-color);
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: var(--primary-color);
+      z-index: 1000;
+      padding: 12px 0;
+    }
+
+    nav ul {
+      text-align: center;
+    }
+
+    ul li {
+      list-style: none;
+      display: inline-block;
+      padding: 10px 20px;
+      font-weight: bold;
+    }
+
+    ul li a {
+      color: var(--text-color);
+      text-decoration: none;
+      font-size: 18px;
+    }
+
+    .mbox {
+      display: flex;
+      justify-content: space-around;
+      margin: 100px 20px 20px;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .box {
+      background-color: var(--box-color);
+      color: black;
+      padding: 20px;
+      border-radius: 10px;
+      width: 45vw;
+      min-width: 300px;
+      text-align: center;
+    }
+
+    .text {
+      color: black;
+      font-size: 18px;
+      text-align: justify;
+      margin-top: 15px;
+    }
+
+    footer {
+      background-color: var(--primary-color);
+      padding: 20px 0;
+      margin-top: 20px;
+      border-radius: 8px;
+      width: 90%;
+      margin: 44px auto;
+    }
+
+    footer p {
+      text-align: center;
+      color: var(--text-color);
+    }
+
+    /* Footer image (fixed bottom right corner) */
+    .footer-img {
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+      width: 60px;
+      height: 60px;
+      z-index: 999;
+    }
+
+    /* Media Queries */
+    @media (max-width: 768px) {
+      nav ul {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      ul li {
+        display: block;
+        padding: 10px;
+      }
+
+      .box {
+        width: 90vw;
+      }
+
+      .text {
+        font-size: 16px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      nav ul li a {
+        font-size: 16px;
+      }
+
+      .text {
+        font-size: 15px;
+      }
+
+      .footer-img {
+        width: 45px;
+        height: 45px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/">About</a></li>
+        <li><a href="/">Services</a></li>
+        <li><a href="/">Contact Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="mbox">
+    <div class="box">
+      <h1>Box 1</h1>
+      <p class="text">
+        This is the first box with some text.
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate
+        laborum voluptas provident dolor tenetur nobis, eos reiciendis...
+      </p>
+    </div>
+    <div class="box">
+      <h1>Box 2</h1>
+      <p class="text">
+        This is the second box with some more text. Lorem ipsum dolor sit
+        amet, consectetur adipisicing elit. Quam, molestias...
+      </p>
+    </div>
+  </div>
+
+  <footer>
+    <div class="lbox">
+      <p>© 2023 My MultiColor Website</p>
+      <p>Created by Raju</p>
+    </div>
+  </footer>
+
+  <!-- Fixed bottom-right image -->
+  <img src="https://cdn-icons-png.flaticon.com/512/25/25694.png" alt="Corner Icon" class="footer-img" />
+</body>
+
+</html>
