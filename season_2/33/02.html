@@ -1,0 +1,148 @@
+<!-- grok -->
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Multi-Color Navbar Examples</title>
+  <style>
+    /* Example 1: Different Colors for Each Link Text */
+    :root {
+      --color-home: red;
+      --color-about: orange;
+      --color-services: green;
+      --color-contact: blue;
+      --navbar-bg: #333;
+    }
+
+    .navbar-example1 {
+      background-color: var(--navbar-bg);
+      padding: 10px;
+      margin-bottom: 20px;
+    }
+
+    .navbar-example1 ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+    }
+
+    .navbar-example1 ul li {
+      margin: 0 10px;
+    }
+
+    .navbar-example1 ul li:nth-child(1) a { color: var(--color-home); }
+    .navbar-example1 ul li:nth-child(2) a { color: var(--color-about); }
+    .navbar-example1 ul li:nth-child(3) a { color: var(--color-services); }
+    .navbar-example1 ul li:nth-child(4) a { color: var(--color-contact); }
+
+    .navbar-example1 a {
+      text-decoration: none;
+      padding: 10px 20px;
+      display: block;
+    }
+
+    /* Example 2: Gradient Background */
+    :root {
+      --nav-bg: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+    }
+
+    .navbar-example2 {
+      background: var(--nav-bg);
+      padding: 10px;
+      margin-bottom: 20px;
+    }
+
+    .navbar-example2 ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+    }
+
+    .navbar-example2 ul li {
+      margin: 0 10px;
+    }
+
+    .navbar-example2 a {
+      text-decoration: none;
+      color: white;
+      padding: 10px 20px;
+      display: block;
+    }
+
+    /* Example 3: Different Background Colors for Each Nav Item */
+    :root {
+      --bg-home: red;
+      --bg-about: orange;
+      --bg-services: green;
+      --bg-contact: blue;
+    }
+
+    .navbar-example3 ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+    }
+
+    .navbar-example3 .nav-item {
+      margin: 0 5px;
+    }
+
+    .navbar-example3 .nav-item:nth-child(1) { background-color: var(--bg-home); }
+    .navbar-example3 .nav-item:nth-child(2) { background-color: var(--bg-about); }
+    .navbar-example3 .nav-item:nth-child(3) { background-color: var(--bg-services); }
+    .navbar-example3 .nav-item:nth-child(4) { background-color: var(--bg-contact); }
+
+    .navbar-example3 .nav-item a {
+      text-decoration: none;
+      color: white;
+      padding: 10px 20px;
+      display: block;
+    }
+
+    /* General Styling */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    h2 {
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Example 1: Different Colors for Each Link Text</h2>
+  <nav class="navbar-example1">
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Services</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <h2>Example 2: Gradient Background</h2>
+  <nav class="navbar-example2">
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Services</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <h2>Example 3: Different Background Colors for Each Nav Item</h2>
+  <nav class="navbar-example3">
+    <ul>
+      <li class="nav-item"><a href="#">Home</a></li>
+      <li class="nav-item"><a href="#">About</a></li>
+      <li class="nav-item"><a href="#">Services</a></li>
+      <li class="nav-item"><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+</body>
+</html>

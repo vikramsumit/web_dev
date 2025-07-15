@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Color Gradient Navbar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            /* Primary Colors */
+            --nav-bg: #1a1a2e;
+            --nav-text: #ffffff;
+            
+            /* Multi-color variables */
+            --color-1: #ff6b6b;
+            --color-2: #4ecdc4;
+            --color-3: #ffd166;
+            --color-4: #118ab2;
+            --color-5: #ef476f;
+            --color-6: #06d6a0;
+            --color-7: #ff9e00;
+            
+            /* Gradient effects */
+            --gradient-1: linear-gradient(45deg, var(--color-1), var(--color-2));
+            --gradient-2: linear-gradient(45deg, var(--color-3), var(--color-4));
+            --gradient-3: linear-gradient(45deg, var(--color-5), var(--color-6));
+            --gradient-4: linear-gradient(45deg, var(--color-7), var(--color-1));
+            
+            /* Animation timing */
+            --transition-speed: 0.4s;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #2c3e50, #1a1a2e);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            color: white;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            background: var(--nav-bg);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 5%;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+            position: relative;
+            z-index: 100;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            font-size: 2.2rem;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: pulse 2s infinite;
+        }
+
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: var(--gradient-3);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .nav-link {
+            position: relative;
+            text-decoration: none;
+            color: var(--nav-text);
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 0.6rem 1.2rem;
+            border-radius: 8px;
+            transition: all var(--transition-speed) ease;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-1);
+            z-index: -1;
+            opacity: 0;
+            transition: opacity var(--transition-speed) ease;
+            border-radius: 8px;
+        }
+
+        .nav-link:hover::before {
+            opacity: 1;
+        }
+
+        .nav-link:nth-child(1)::before { background: var(--gradient-1); }
+        .nav-link:nth-child(2)::before { background: var(--gradient-2); }
+        .nav-link:nth-child(3)::before { background: var(--gradient-3); }
+        .nav-link:nth-child(4)::before { background: var(--gradient-4); }
+        .nav-link:nth-child(5)::before { background: var(--gradient-2); }
+
+        .nav-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+            color: white;
+        }
+
+        .cta-button {
+            background: var(--gradient-3);
+            border: none;
+            padding: 0.8rem 1.8rem;
+            border-radius: 50px;
+            color: white;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all var(--transition-speed) ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Mobile menu button */
+        .menu-toggle {
+            display: none;
+            background: var(--gradient-2);
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            cursor: pointer;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Content styles */
+        .hero {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(45deg, var(--color-1), var(--color-3), var(--color-6));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: gradientShift 8s infinite;
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            max-width: 700px;
+            margin-bottom: 2rem;
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+
+        /* Color Palette Display */
+        .color-palette {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .color-box {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-weight: bold;
+            font-size: 0.8rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Animations */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Responsive design */
+        @media (max-width: 900px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--nav-bg);
+                flex-direction: column;
+                padding: 1.5rem;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .menu-toggle {
+                display: flex;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fas fa-palette logo-icon"></i>
+            <span class="logo-text">ColorNav</span>
+        </div>
+        
+        <ul class="nav-links">
+            <li><a href="#" class="nav-link">Home</a></li>
+            <li><a href="#" class="nav-link">Features</a></li>
+            <li><a href="#" class="nav-link">Gallery</a></li>
+            <li><a href="#" class="nav-link">Pricing</a></li>
+            <li><a href="#" class="nav-link">Contact</a></li>
+        </ul>
+        
+        <button class="cta-button">Get Started</button>
+        
+        <button class="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </button>
+    </nav>
+    
+    <div class="hero">
+        <h1>Multi-Color Gradient Navbar</h1>
+        <p>This navbar showcases the power of CSS variables to create vibrant, multi-color effects. Each navigation item has a unique gradient on hover, all defined with CSS custom properties.</p>
+        
+        <div class="color-palette">
+            <div class="color-box" style="background-color: var(--color-1);">--color-1</div>
+            <div class="color-box" style="background-color: var(--color-2);">--color-2</div>
+            <div class="color-box" style="background-color: var(--color-3);">--color-3</div>
+            <div class="color-box" style="background-color: var(--color-4);">--color-4</div>
+            <div class="color-box" style="background-color: var(--color-5);">--color-5</div>
+            <div class="color-box" style="background-color: var(--color-6);">--color-6</div>
+            <div class="color-box" style="background-color: var(--color-7);">--color-7</div>
+        </div>
+    </div>
+    
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+        
+        // Add animation to CTA button on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const ctaButton = document.querySelector('.cta-button');
+            setTimeout(() => {
+                ctaButton.style.transform = 'scale(1.05)';
+                ctaButton.style.boxShadow = '0 8px 25px rgba(0, 0, 0, 0.4)';
+                
+                setTimeout(() => {
+                    ctaButton.style.transform = '';
+                    ctaButton.style.boxShadow = '';
+                }, 1000);
+            }, 1500);
+        });
+    </script>
+</body>
+</html>

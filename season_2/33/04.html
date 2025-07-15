@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        :root {
+            --navbar-gradient-default: linear-gradient(to right, var(--navbar-bg-start), var(--navbar-bg-end));
+            --navbar-gradient-hover: linear-gradient(to left, var(--navbar-bg-end), var(--navbar-bg-start));
+            --navbar-bg-start: #2a2a72;
+            /* Dark Blue */
+            --navbar-bg-end: #009ffd;
+            /* Bright Blue */
+            --link-color-default: #e0e0e0;
+            --link-color-hover: #ffffff;
+            --link-color-active: #ffc107;
+            /* Amber */
+            --border-color: rgba(255, 255, 255, 0.2);
+            --font-stack: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            --padding-x: 1.5rem;
+            --padding-y: 1rem;
+        }
+
+        /* Using previous HTML structure */
+
+
+        :root {
+            /* ... existing variables ... */
+            --navbar-gradient-default: linear-gradient(to right, var(--navbar-bg-start), var(--navbar-bg-end));
+            --navbar-gradient-hover: linear-gradient(to left, var(--navbar-bg-end), var(--navbar-bg-start));
+        }
+
+        .navbar:hover {
+            background: var(--navbar-gradient-hover);
+            transition: background 0.5s ease-in-out;
+        }
+
+        .navbar {
+            background: var(--navbar-gradient-default);
+            /* background: linear-gradient(to right, var(--navbar-bg-start), var(--navbar-bg-end)); */
+            padding: var(--padding-y) var(--padding-x);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            font-family: var(--font-stack);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .navbar-nav {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            /* Center items */
+            gap: 1.5rem;
+            /* Space between items */
+        }
+
+        .nav-item .nav-link {
+            color: var(--link-color-default);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            display: block;
+            transition: color 0.3s ease, background-color 0.3s ease, transform 0.2s ease;
+            border-radius: 5px;
+            position: relative;
+            /* For underline effect */
+            overflow: hidden;
+            /* For creative effects */
+        }
+
+        .nav-item .nav-link:hover {
+            color: var(--link-color-hover);
+            transform: translateY(-2px);
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-item .nav-link.active,
+        .nav-item .nav-link:active {
+            color: var(--link-color-active);
+            font-weight: bold;
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Responsive adjustments for smaller screens */
+        @media (max-width: 768px) {
+            :root {
+                --navbar-bg-start: #FF6B6B;
+                /* Red for mobile */
+                --navbar-bg-end: #FFE66D;
+                /* Yellow for mobile */
+                --link-color-default: #333;
+                /* Darker text for mobile */
+                --link-color-hover: #8B63D1;
+                /* Purple hover for mobile */
+            }
+
+            .navbar-nav {
+                flex-direction: column;
+                /* Stack items vertically */
+                align-items: center;
+                gap: 0.5rem;
+            }
+
+            .navbar {
+                padding: 1rem;
+                /* Adjust padding for smaller screens */
+            }
+        }
+
+        /* Example for very small screens (e.g., mobile menu) */
+        @media (max-width: 480px) {
+            :root {
+                --navbar-bg-start: #4ECDC4;
+                /* Teal for very small screens */
+                --navbar-bg-end: #57A99A;
+                /* Dark Teal for very small screens */
+                --link-color-default: #f0f0f0;
+                --link-color-hover: #ffffff;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <ul class="navbar-nav">
+            <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">Services</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">Portfolio</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
+        </ul>
+    </nav>
+</body>
+
+</html>

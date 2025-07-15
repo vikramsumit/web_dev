@@ -1,0 +1,160 @@
+<!-- chatgpt -->
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Multi‑Color Navbar</title>
+  <style>
+    /* define your palette in one spot */
+    :root {
+      --nav-height: 60px;
+      --nav-bg: #222;
+      --link-color-default: #fff;
+
+      --color-1: #e63946;
+      --color-2: #f4a261;
+      --color-3: #2a9d8f;
+      --color-4: #457b9d;
+      --color-5: #8d99ae;
+    }
+
+    /* reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: sans-serif;
+    }
+
+    /* navbar wrapper */
+    .navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      background-color: var(--nav-bg);
+      display: flex;
+      align-items: center;
+      padding: 0 20px;
+      z-index: 1000;
+      /* drop shadow */
+      box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+    }
+
+    /* nav list */
+    .navbar nav ul {
+      list-style: none;
+      display: flex;
+      gap: 10px;
+      width: 100%;
+    }
+
+    .navbar nav ul li {
+      flex: 1;
+    }
+
+    .navbar nav ul li a {
+      display: block;
+      text-align: center;
+      line-height: var(--nav-height);
+      color: var(--link-color-default);
+      text-decoration: none;
+      font-weight: 500;
+      transition: background-color 0.2s;
+    }
+
+    /* assign each link its own color from the variables */
+    .navbar nav ul li:nth-child(1) a:hover {
+      background-color: var(--color-1);
+    }
+    .navbar nav ul li:nth-child(2) a:hover {
+      background-color: var(--color-2);
+    }
+    .navbar nav ul li:nth-child(3) a:hover {
+      background-color: var(--color-3);
+    }
+    .navbar nav ul li:nth-child(4) a:hover {
+      background-color: var(--color-4);
+    }
+    .navbar nav ul li:nth-child(5) a:hover {
+      background-color: var(--color-5);
+    }
+
+    /* active link highlight */
+    .navbar nav ul li a.active {
+      background-clip: content-box;
+      padding: 0 10px;
+      border-bottom: 4px solid var(--color-3);
+    }
+
+    /* responsive collapse into a hamburger */
+    @media (max-width: 600px) {
+      .navbar {
+        padding: 0 10px;
+      }
+      .navbar nav ul {
+        display: none;
+        flex-direction: column;
+        background-color: var(--nav-bg);
+      }
+      .navbar nav ul.show {
+        display: flex;
+      }
+      .hamburger {
+        cursor: pointer;
+        width: 30px;
+        height: 20px;
+        position: relative;
+      }
+      .hamburger span {
+        position: absolute;
+        height: 3px;
+        width: 100%;
+        background: #fff;
+        left: 0;
+        transition: 0.3s;
+      }
+      .hamburger span:nth-child(1) { top: 0; }
+      .hamburger span:nth-child(2) { top: 8px; }
+      .hamburger span:nth-child(3) { top: 16px; }
+      /* animate to X when open */
+      .hamburger.open span:nth-child(1) { transform: rotate(45deg); top: 8px; }
+      .hamburger.open span:nth-child(2) { opacity: 0; }
+      .hamburger.open span:nth-child(3) { transform: rotate(-45deg); top: 8px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="hamburger" onclick="toggleMenu(this)">
+      <span></span><span></span><span></span>
+    </div>
+    <nav>
+      <ul id="menu">
+        <li><a href="#" class="active">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Portfolio</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <script>
+    function toggleMenu(el) {
+      el.classList.toggle('open');
+      document.getElementById('menu').classList.toggle('show');
+    }
+  </script>
+
+  <!-- dummy content to scroll under fixed navbar -->
+  <div style="margin-top: var(--nav-height); padding: 20px;">
+    <p>Page content goes here…</p>
+    <p>Scroll to see the fixed navbar remain in place.</p>
+  </div>
+</body>
+</html>

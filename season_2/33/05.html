@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Luminent Nexus Navbar</title>
+  <style>
+    /* Theme colors with CSS variables for easy customization */
+    :root {
+      --bg-color: #333;       /* navbar background */
+      --text-color: #fff;     /* link and brand text */
+      --hover-color: #ddd;    /* link hover color/underline */
+    }
+    /* Basic resets */
+    body, ul { margin: 0; padding: 0; }
+    body { font-family: Arial, sans-serif; }
+    ul { list-style: none; }
+    a { color: inherit; text-decoration: none; }
+
+    /* Navbar container */
+    .navbar {
+      position: fixed; top: 0; left: 0; right: 0;
+      background-color: var(--bg-color);
+      display: flex; justify-content: space-between;
+      align-items: center; padding: 0.5rem 1rem;
+      z-index: 1000;
+    }
+    /* Brand styling */
+    .navbar .brand {
+      font-size: 1.5rem; font-weight: bold;
+      color: var(--text-color);
+    }
+    /* Navigation links (desktop) */
+    .navbar .nav-links {
+      display: flex;
+    }
+    .navbar .nav-links li {
+      margin-left: 1.5rem;
+    }
+    .navbar .nav-links a {
+      color: var(--text-color);
+      padding: 0.5rem 0;
+      transition: color 0.3s;
+      border-bottom: 2px solid transparent;
+    }
+    .navbar .nav-links a:hover {
+      color: var(--hover-color);
+      border-bottom-color: var(--hover-color);
+    }
+    /* Hamburger toggle (hidden by default) */
+    .navbar .nav-toggle {
+      display: none;
+    }
+    .navbar .hamburger {
+      display: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--text-color);
+    }
+    /* Responsive: small screens */
+    @media (max-width: 768px) {
+      /* Show hamburger icon */
+      .navbar .hamburger {
+        display: block;
+      }
+      /* Hide links by default */
+      .navbar .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: var(--bg-color);
+        position: absolute;
+        top: 100%; left: 0;
+      }
+      .navbar .nav-links li {
+        margin: 0;
+        text-align: center;
+        padding: 0.75rem 0;
+      }
+      /* Show links when checkbox is checked (CSS checkbox hack) */
+      .navbar .nav-toggle:checked ~ .nav-links {
+        display: flex;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="brand">LUMINENT NEXUS</div>
+    <!-- Hidden checkbox to toggle menu (labels for checkbox implement the "hamburger" toggle) -->
+    <input type="checkbox" id="nav-toggle" class="nav-toggle">
+    <label for="nav-toggle" class="hamburger">&#9776;</label>
+    <ul class="nav-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Products</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Page content for demonstration -->
+  <div style="margin-top: 4rem; padding: 1rem;">
+    <h1>Welcome to Luminent Nexus</h1>
+    <p>Sample content goes here.</p>
+  </div>
+
+</body>
+</html>
