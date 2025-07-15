@@ -1,11 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>CSS Float & Clear</title>
+    <style>
+        .cards {
+            border: 2px solid rgb(148, 76, 76);
+            display: flow-root;
+        }
+
+        img {
+            /* float: left; */
+            float: right;
+        }
+        .card{
+            border: 2px solid rgb(136, 187, 187);
+        }
+                .card:nth-child(3){
+            background-color: aqua;
+            clear:both;
+        }
+    </style>
 </head>
+
 <body>
-    
+    <div class="cards">
+        <img src="https://learnandsupport.getolympus.com/sites/default/files/styles/hero_large/public/2023-05/20230331-_3310122-edit-ftsmithphotos.jpg?itok=-mu5skvq"
+            alt="Nature images" width="300" height="200">
+        <div class="card">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero commodi eius mollitia iusto
+            quos illum rerum soluta quibusdam dolore praesentium alias quaerat minus molestiae adipisci impedit esse
+            amet nemo, nam assumenda cumque. Aspernatur pariatur voluptatum nam inventore quidem aliquid in,
+            necessitatibus cupiditate recusandae aliquam.</div>
+        <div class="card">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Provident ea iure, facere sit molestias, porro dolores quisquam ad, deserunt earum consequuntur alias qui rem. Voluptate necessitatibus labore repellendus beatae, quibusdam tempora maxime! Nobis libero sapiente error placeat deserunt, dolores perspiciatis nostrum qui modi! Perferendis sunt architecto esse consectetur modi placeat, quod iste suscipit? Earum nihil illum velit unde! Iusto incidunt hic qui nihil sed error, cumque ea nesciunt maiores dignissimos in officia inventore repudiandae velit vitae nobis culpa porro animi. Delectus a esse magnam at voluptates deleniti molestias reprehenderit optio iste corrupti pariatur, ut odit magni iure incidunt totam modi rem provident illo. Similique quasi eius nobis nesciunt recusandae impedit velit vero fugit ipsam nihil quaerat molestias, tenetur dolores ipsa ab non deserunt praesentium. Quasi dolorem inventore nulla perspiciatis, voluptas voluptates quia excepturi autem natus repudiandae quas similique minus ab quod provident in! Aliquid, porro suscipit, at, amet debitis vitae doloremque excepturi voluptate expedita vel esse odit illum accusamus dolore! Id dignissimos at amet, qui ratione quisquam enim culpa similique sunt sint a natus aliquam maiores inventore quam itaque, molestias assumenda? Accusantium molestias nulla eos! Maxime illum, molestias ad libero harum alias expedita sit, minus magnam inventore nam ipsam deleniti odit sed atque nostrum labore amet reprehenderit. A quidem magnam cumque repellat consequuntur ut! Maxime, magnam blanditiis? Ut similique aspernatur fuga vitae. Voluptatum doloribus a dolores sunt enim eaque vel animi alias at. Eligendi voluptas eos accusantium, reiciendis sed adipisci aspernatur molestiae autem explicabo minima officia? Officia quisquam accusamus ad vel laboriosam expedita velit eos sed id reprehenderit molestias esse veritatis quae, at, ducimus quaerat eligendi eum sequi provident ipsum. Odio debitis minus enim numquam ipsa quos animi, beatae ad aspernatur nisi praesentium eius quod excepturi blanditiis sed eaque sapiente, impedit soluta. Quaerat natus vero quibusdam, in necessitatibus repellendus repudiandae, deserunt tempore modi deleniti perferendis illum. Quos id itaque sequi. Laboriosam doloribus ut rerum itaque quia tenetur laborum ipsum fuga hic dolorum odit impedit vel, nam accusamus dignissimos expedita laudantium facere aut totam.</div>
+        <div class="card">card3</div>
+    </div>
 </body>
+
 </html>
