@@ -6,6 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CSS Grid</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
         .container {
             border: 2px solid black;
             display: grid;
@@ -31,16 +36,21 @@
 
         .item-3 {
             grid-area: article;
-            background-color: azure;
+            background-color: #F7F8F9;
         }
 
         .item-4 {
             grid-area: footer;
+            background-color: #1E1E20;
         }
 
         /* .item-5 {
             grid-area: nav;
         } */
+
+        .item-5 {
+            background-color: #202123;
+        }
     </style>
 </head>
 
