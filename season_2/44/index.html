@@ -6,10 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        .logo {  
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
         }
 
-        .logo img{
+        .logo {}
+
+        .logo img {
             width: 164px;
         }
 
@@ -31,10 +37,119 @@
             align-items: center;
             cursor: pointer;
         }
-        .right ul li span{
+
+        .right ul li span {
             padding: 0 5px;
         }
 
+        .main-container {
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .download-section {
+            text-align: center;
+            max-width: 700px;
+        }
+
+        .download-section h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .download-section p {
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            color: #555;
+        }
+
+        .mac-btn {
+            padding: 0.7rem 1.5rem;
+            background-color: #00bfff;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .version-info {
+            margin: 2rem 0 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .badge {
+            background: #ffdf00;
+            color: black;
+            font-weight: bold;
+            padding: 0.3rem 0.6rem;
+            border-radius: 3px;
+        }
+
+
+
+        .language-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            /* grid-template-rows: repeat(2, auto); */
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        @media (max-width: 768px) {
+
+            /* Tablet screens and smaller */
+            .language-grid {
+                grid-template-columns: repeat(2, 1fr);
+                /* 2 columns */
+            }
+        }
+
+        @media (max-width: 480px) {
+
+            /* Mobile screens and smaller */
+            .language-grid {
+                grid-template-columns: 1fr;
+                /* 1 column */
+            }
+        }
+
+        .lang-card {
+            background: white;
+            border: 1px solid #ddd;
+            padding: 1rem;
+            border-radius: 8px;
+            width: 200px;
+            text-align: center;
+        }
+
+        .lang-card h3 {
+            margin-bottom: 0.5rem;
+        }
+
+        .btn-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .btn-group button {
+            padding: 0.5rem;
+            border: none;
+            background-color: #20c997;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .btn-group button:hover {
+            background-color: #17a589;
+        }
     </style>
 </head>
 
@@ -46,30 +161,107 @@
             </div>
             <div class="right">
                 <ul>
-                    <li><span>Products </span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M6 9L11.2929 14.2929C11.6262 14.6262 11.7929 14.7929 12 14.7929C12.2071 14.7929 12.3738 14.6262 12.7071 14.2929L18 9" stroke="#141B34" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <li><span>Products </span><svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M6 9L11.2929 14.2929C11.6262 14.6262 11.7929 14.7929 12 14.7929C12.2071 14.7929 12.3738 14.6262 12.7071 14.2929L18 9"
+                                stroke="#141B34" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                         </svg>
-                        </li>
-                    <li><span>Pricing </span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M6 9L11.2929 14.2929C11.6262 14.6262 11.7929 14.7929 12 14.7929C12.2071 14.7929 12.3738 14.6262 12.7071 14.2929L18 9" stroke="#141B34" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                        </li>
-                    <li><span>Resources </span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M6 9L11.2929 14.2929C11.6262 14.6262 11.7929 14.7929 12 14.7929C12.2071 14.7929 12.3738 14.6262 12.7071 14.2929L18 9" stroke="#141B34" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                        </li>
-                    <li><span>About Us </span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M6 9L11.2929 14.2929C11.6262 14.6262 11.7929 14.7929 12 14.7929C12.2071 14.7929 12.3738 14.6262 12.7071 14.2929L18 9" stroke="#141B34" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                        </li>
-                    <li>
-                        <img src="https://www.ultraedit.com/wp-content/themes/Divi_Child/img/Lang.png" alt=""></div>
-
                     </li>
-                </ul>
+                    <li><span>Pricing </span><svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M6 9L11.2929 14.2929C11.6262 14.6262 11.7929 14.7929 12 14.7929C12.2071 14.7929 12.3738 14.6262 12.7071 14.2929L18 9"
+                                stroke="#141B34" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </li>
+                    <li><span>Resources </span><svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M6 9L11.2929 14.2929C11.6262 14.6262 11.7929 14.7929 12 14.7929C12.2071 14.7929 12.3738 14.6262 12.7071 14.2929L18 9"
+                                stroke="#141B34" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </li>
+                    <li><span>About Us </span><svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M6 9L11.2929 14.2929C11.6262 14.6262 11.7929 14.7929 12 14.7929C12.2071 14.7929 12.3738 14.6262 12.7071 14.2929L18 9"
+                                stroke="#141B34" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </li>
+                    <li>
+                        <img src="https://www.ultraedit.com/wp-content/themes/Divi_Child/img/Lang.png" alt="">
+            </div>
+
+            </li>
+            </ul>
             </div>
         </nav>
     </header>
+
+    <main class="main-container">
+        <section class="download-section">
+            <h1>Download <strong>UltraEdit</strong> for Windows</h1>
+            <p>Download and try UltraEdit before you buy it! This download includes the full Windows version of the text
+                editor.</p>
+            <button class="mac-btn">Download Mac or Linux Version</button>
+        </section>
+
+        <section class="downloads">
+            <div class="version-info">
+                <span class="badge">UE</span>
+                <p>Download UltraEdit v2023.1 (released 08/16/2023) | Hotfix</p>
+            </div>
+
+            <div class="language-grid">
+                <div class="lang-card">
+                    <h3>English</h3>
+                    <div class="btn-group">
+
+                        <button>
+                            <a href="01.webp"> Download 32-bit</a>
+                        </button>
+                        <button>Download 64-bit</button>
+                    </div>
+                </div>
+                <div class="lang-card">
+                    <h3>Deutsch<br><small>German</small></h3>
+                    <div class="btn-group">
+                        <button>Download 32-bit</button>
+                        <button>Download 64-bit</button>
+                    </div>
+                </div>
+                <div class="lang-card">
+                    <h3>Italiano<br><small>Italian</small></h3>
+                    <div class="btn-group">
+                        <button>Download 32-bit</button>
+                        <button>Download 64-bit</button>
+                    </div>
+                </div>
+                <div class="lang-card">
+                    <h3>Español<br><small>Spanish</small></h3>
+                    <div class="btn-group">
+                        <button>Download 32-bit</button>
+                        <button>Download 64-bit</button>
+                    </div>
+                </div>
+                <div class="lang-card">
+                    <h3>français<br><small>French</small></h3>
+                    <div class="btn-group">
+                        <button>Download 32-bit</button>
+                        <button>Download 64-bit</button>
+                    </div>
+                </div>
+                <div class="lang-card">
+                    <h3>Português<br><small>Brazilian Portuguese</small></h3>
+                    <div class="btn-group">
+                        <button>Download 32-bit</button>
+                        <button>Download 64-bit</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 </body>
 
 </html>
