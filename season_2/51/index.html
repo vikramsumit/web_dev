@@ -11,6 +11,7 @@
             padding: 0;
             box-sizing: border-box;
         }
+
         .box {
             height: 121px;
             width: 121px;
@@ -19,7 +20,7 @@
             position: absolute;
             bottom: 0;
             left: 0;
-            animation: bounce 3s infinite;
+            animation: animateX 3s linear infinite, animateY 1s ease-out infinite alternate;
         }
 
         .container {
@@ -29,25 +30,23 @@
             background-color: blue;
         }
 
-        @keyframes bounce {
-            0% {
-                transform: translateX(0) translateY(0);
-                animation-timing-function: ease-out;
+        @keyframes animateX {
+            from {
+                left: 0;
             }
-            25% {
-                transform: translateX(25vw) translateY(-50vh);
-                animation-timing-function: ease-in;
+
+            to {
+                left: 100%;
             }
-            50% {
-                transform: translateX(50vw) translateY(0);
-                animation-timing-function: ease-out;
+        }
+
+        @keyframes animateY {
+            from {
+                bottom: 0;
             }
-            75% {
-                transform: translateX(75vw) translateY(-50vh);
-                animation-timing-function: ease-in;
-            }
-            100% {
-                transform: translateX(100vw) translateY(0);
+
+            to {
+                bottom: 100%;
             }
         }
     </style>
