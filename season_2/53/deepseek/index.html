@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix Clone</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* CSS Variables */
+        :root {
+            --red: #E50914;
+            --black: #000;
+            --dark-gray: #141414;
+            --mid-gray: #303030;
+            --light-gray: #757575;
+            --white: #fff;
+            --semi-black: rgba(0, 0, 0, 0.7);
+            --semi-white: rgba(255, 255, 255, 0.7);
+            --transition: all 0.3s ease;
+        }
+
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--black);
+            color: var(--white);
+            line-height: 1.5;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--white);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 24px;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn--play {
+            background: var(--red);
+            color: var(--white);
+        }
+
+        .btn--play:hover {
+            background: #f40612;
+        }
+
+        .btn--info {
+            background: rgba(255, 255, 255, 0.2);
+            color: var(--white);
+        }
+
+        .btn--info:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Header Styles */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 4%;
+            z-index: 100;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%);
+            transition: background 0.4s ease;
+        }
+
+        .header.scrolled {
+            background: var(--black);
+        }
+
+        .logo {
+            height: 36px;
+            fill: var(--red);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--light-gray);
+        }
+
+        .nav-controls {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .nav-controls a {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.9rem;
+        }
+
+        .icon {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background-color: var(--white);
+            mask-size: contain;
+            mask-position: center;
+            mask-repeat: no-repeat;
+        }
+
+        .icon-search {
+            mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>');
+        }
+
+        .icon-bell {
+            mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/></svg>');
+        }
+
+        .user-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 4px;
+            background-color: var(--red);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: var(--white);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            display: block;
+            height: 3px;
+            width: 100%;
+            background-color: var(--white);
+            border-radius: 10px;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 90vh;
+            min-height: 500px;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://www.dotyeti.com/wp-content/uploads/2023/01/image5-1-691x1024.jpg') no-repeat center center/cover;
+            display: flex;
+            align-items: flex-end;
+            padding-bottom: 10%;
+        }
+
+        .hero-content {
+            max-width: 40%;
+            padding-left: 4%;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            color: var(--semi-white);
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        /* Content Rows */
+        .content {
+            padding: 40px 0;
+        }
+
+        .row {
+            margin-bottom: 40px;
+        }
+
+        .row-title {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            padding-left: 4%;
+        }
+
+        .cards {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            padding: 0 4%;
+            gap: 10px;
+            scrollbar-width: none; /* Firefox */
+        }
+
+        .cards::-webkit-scrollbar {
+            display: none; /* Chrome, Safari */
+        }
+
+        .card {
+            scroll-snap-align: start;
+            flex: 0 0 auto;
+            width: 200px;
+            height: 120px;
+            border-radius: 4px;
+            overflow: hidden;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .card:hover {
+            transform: scale(1.1);
+            z-index: 2;
+        }
+
+        .card-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .card:hover .card-overlay {
+            opacity: 1;
+        }
+
+        .play-icon {
+            width: 50px;
+            height: 50px;
+            background-color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .play-icon::after {
+            content: "";
+            width: 0;
+            height: 0;
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+            border-left: 16px solid var(--black);
+            margin-left: 4px;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--dark-gray);
+            padding: 50px 0 20px;
+            color: var(--light-gray);
+        }
+
+        .footer-links {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            padding: 0 4%;
+            margin-bottom: 30px;
+        }
+
+        .footer-links a {
+            color: var(--light-gray);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            display: block;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+        .copyright {
+            padding: 0 4%;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 900px) {
+            .hero-content {
+                max-width: 60%;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .footer-links {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .card {
+                width: 180px;
+                height: 108px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            /* Header */
+            .nav-links {
+                display: none;
+            }
+            
+            .hamburger {
+                display: flex;
+            }
+            
+            /* Hero */
+            .hero {
+                height: 80vh;
+                align-items: center;
+                padding: 0 4%;
+            }
+            
+            .hero-content {
+                max-width: 100%;
+                padding: 0;
+                text-align: center;
+            }
+            
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .hero-buttons .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            /* Content Rows */
+            .card {
+                width: 100%;
+                height: 56.25vw; /* 16:9 aspect ratio */
+            }
+            
+            /* Footer */
+            .footer-links {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="nav">
+                <a href="#" class="logo">
+                    <svg class="logo" width="108" height="36" viewBox="0 0 111 30" fill="none">
+                        <path d="M105.062 14.28L111 15.444C110.182 19.152 108.334 22.124 105.046 24.252C101.758 26.38 97.722 27.444 92.938 27.444C84.994 27.444 79.326 24.6 75.934 18.924C72.542 13.236 71.05 5.544 71.458 -4.17297e-06H82.51C82.302 3.28 82.95 6.396 84.454 9.348C85.966 12.3 88.422 14.224 91.822 15.12C95.23 16.016 98.894 15.544 102.814 13.704L105.062 14.28ZM54.99 14.784C55.87 13.2 56.23 11.432 56.07 9.48C55.918 7.528 55.246 5.852 54.054 4.452C52.87 3.044 51.286 2.028 49.302 1.404C47.326 0.78 45.118 0.468 42.678 0.468H31.158V27.6H42.678C45.326 27.6 47.71 27.316 49.83 26.748C51.95 26.18 53.726 25.232 55.158 23.904C56.598 22.576 57.622 20.868 58.23 18.78C58.838 16.692 59.014 14.22 58.758 11.364L54.99 14.784ZM42.99 10.188H36.342V5.4H42.99C44.63 5.4 45.894 5.716 46.782 6.348C47.678 6.98 48.126 7.916 48.126 9.156C48.126 10.388 47.678 11.324 46.782 11.964C45.894 12.604 44.63 12.924 42.99 12.924V10.188ZM42.99 17.964H36.342V13.176H42.99C44.63 13.176 45.894 13.5 46.782 14.148C47.678 14.796 48.126 15.76 48.126 17.04C48.126 18.312 47.678 19.276 46.782 19.932C45.894 20.588 44.63 20.916 42.99 20.916V17.964ZM9.774 14.28L15.714 15.444C14.894 19.152 13.046 22.124 9.758 24.252C6.47 26.38 2.434 27.444 -2.35 27.444C-10.294 27.444 -15.962 24.6 -19.354 18.924C-22.746 13.236 -24.238 5.544 -23.83 -4.17297e-06H-12.778C-12.57 3.28 -11.922 6.396 -10.418 9.348C-8.914 12.3 -6.458 14.224 -3.05 15.12C0.358 16.016 4.022 15.544 7.942 13.704L9.774 14.28Z" fill="#E50914"/>
+                    </svg>
+                </a>
+                
+                <ul class="nav-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">TV Shows</a></li>
+                    <li><a href="#">Movies</a></li>
+                    <li><a href="#">New & Popular</a></li>
+                    <li><a href="#">My List</a></li>
+                </ul>
+                
+                <div class="nav-controls">
+                    <a href="#"><span class="icon icon-search"></span></a>
+                    <a href="#">Kids</a>
+                    <a href="#"><span class="icon icon-bell"></span></a>
+                    <div class="user-avatar">U</div>
+                    <div class="hamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Stranger Things</h1>
+            <p class="hero-description">When a young boy vanishes, a small town uncovers a mystery involving secret experiments, terrifying supernatural forces and one strange little girl.</p>
+            <div class="hero-buttons">
+                <a href="#" class="btn btn--play">▶ Play</a>
+                <a href="#" class="btn btn--info">ℹ More Info</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content Rows -->
+    <main class="content">
+        <section class="row">
+            <h2 class="row-title">Trending Now</h2>
+            <div class="cards">
+                <div class="card">
+                    <img src="https://www.dotyeti.com/wp-content/uploads/2023/01/image5-1-691x1024.jpg" alt="Movie poster" class="card-image">
+                    <div class="card-overlay">
+                        <div class="play-icon"></div>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://i.ytimg.com/vi/6ZfuNTqbHE8/maxresdefault.jpg" alt="Movie poster" class="card-image">
+                    <div class="card-overlay">
+                        <div class="play-icon"></div>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://static.moviecrow.com/gallery/20220708/195351-oo.jpg" alt="Movie poster" class="card-image">
+                    <div class="card-overlay">
+                        <div class="play-icon"></div>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://static.moviecrow.com/gallery/20221102/202146-1920x1080.jpg" alt="Movie poster" class="card-image">
+                    <div class="card-overlay">
+                        <div class="play-icon"></div>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://www.filmibeat.com/ph-big/2021/07/rrr_162520435900.jpg" alt="Movie poster" class="card-image">
+                    <div class="card-overlay">
+                        <div class="play-icon"></div>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://static.toiimg.com/photo/msid-102926323,width-96,height-65.cms" alt="Movie poster" class="card-image">
+                    <div class="card-overlay">
+                        <div class="play-icon"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="row">
+            <h2 class="row-title">Top Rated</h2>
+            <div class="cards">
+                <div class="card">
+                    <img src="https://m.media-amazon.com/images/M/MV5BM2MyNjYxNmUtYTAwNi00MTYxLWJmNWYtYzZlODY3ZTk3OTFlXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_.jpg" alt="Movie poster" class="card-image">
+                    <div class="card-overlay">
+                        <div class="play-icon"></div>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_.jpg" alt="Movie poster" class="card-image">
+                    <div class="card-overlay">
+                        <div class="play-icon"></div>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://m.media-amazon.com/images/M/MV5BMDFkYTc0MGEtZmNhMC00ZDIzLWFmNTEtODM1ZmRlYWMwMWFmXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg" alt="Movie poster" class="card-image">
+                    <div class="card-overlay">
+                        <div class="play-icon"></div>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://m.media-amazon.com/images/M/MV5BODU4NjU4NjI3Nl5BMl5BanBnXkFtZTcwMDc3MzQzMQ@@._V1_.jpg" alt="Movie poster" class="card-image">
+                    <div class="card-overlay">
+                        <div class="play-icon"></div>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://m.media-amazon.com/images/M/MV5BNzQzOTk3OTAtNDQ0Zi00ZTVkLWI0MTEtMDllZjNkYzNjNTc4L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_.jpg" alt="Movie poster" class="card-image">
+                    <div class="card-overlay">
+                        <div class="play-icon"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="row">
+            <h2 class="row-title">Action Movies</h2>
+            <div class="cards">
+                <div class="card">
+                    <img src="https://m.media-amazon.com/images/M/MV5BMTk3NDM2MTg0NF5BMl5BanBnXkFtZTcwNzAyNTYzNA@@._V1_FMjpg_UX1000_.jpg" alt="Movie poster" class="card-image">
+                    <div class="card-overlay">
+                        <div class="play-icon"></div>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://m.media-amazon.com/images/M/MV5BMTYzODQzYjQtNTczNC00MzZhLTg1ZWYtZDUxYmQ3ZTY4NzA1XkEyXkFqcGdeQXVyODE5NzE3OTE@._V1_.jpg" alt="Movie poster" class="card-image">
+                    <div class="card-overlay">
+                        <div class="play-icon"></div>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://m.media-amazon.com/images/M/MV5BODU4NDY0NjEzN15BMl5BanBnXkFtZTcwMjg2NzYzNw@@._V1_.jpg" alt="Movie poster" class="card-image">
+                    <div class="card-overlay">
+                        <div class="play-icon"></div>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://m.media-amazon.com/images/M/MV5BMTQ0ODc4Nzk1N15BMl5BanBnXkFtZTgwMDMyNTY0MTE@._V1_.jpg" alt="Movie poster" class="card-image">
+                    <div class="card-overlay">
+                        <div class="play-icon"></div>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://m.media-amazon.com/images/M/MV5BNTQwNDM1YzItNDAxZC00NWY2LTk0M2UtNDIwNWI5OGUyNWUxXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_.jpg" alt="Movie poster" class="card-image">
+                    <div class="card-overlay">
+                        <div class="play-icon"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="row">
+            <h2 class="row-title">New Releases</h2>
+            <div class="cards">
+                <div class="card">
+                    <img src="https://m.media-amazon.com/images/M/MV5BMjIxMjgxNTk0MF5BMl5BanBnXkFtZTgwNjIyOTg2MDE@._V1_.jpg" alt="Movie poster" class="card-image">
+                    <div class="card-overlay">
+                        <div class="play-icon"></div>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://m.media-amazon.com/images/M/MV5BMTc5MDE2ODcwNV5BMl5BanBnXkFtZTgwMzI2NzQ2NzM@._V1_.jpg" alt="Movie poster" class="card-image">
+                    <div class="card-overlay">
+                        <div class="play-icon"></div>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://m.media-amazon.com/images/M/MV5BMTM3NjA1NDgxMV5BMl5BanBnXkFtZTcwMDQzNDMzOQ@@._V1_.jpg" alt="Movie poster" class="card-image">
+                    <div class="card-overlay">
+                        <div class="play-icon"></div>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://m.media-amazon.com/images/M/MV5BZGIxODNjM2YtODQ5YS00N2E3LTg1YzYtOGRlZDM1YzBkYTI3XkEyXkFqcGdeQXVyNjY1MTg4Mzc@._V1_.jpg" alt="Movie poster" class="card-image">
+                    <div class="card-overlay">
+                        <div class="play-icon"></div>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://m.media-amazon.com/images/M/MV5BNDYxNjQyMjAtNTdiOS00NGYwLWFmNTAtNThmYjU5ZGI2YTI1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg" alt="Movie poster" class="card-image">
+                    <div class="card-overlay">
+                        <div class="play-icon"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-links">
+                <div class="footer-column">
+                    <a href="#">FAQ</a>
+                    <a href="#">Investor Relations</a>
+                    <a href="#">Privacy</a>
+                    <a href="#">Speed Test</a>
+                </div>
+                <div class="footer-column">
+                    <a href="#">Help Center</a>
+                    <a href="#">Jobs</a>
+                    <a href="#">Cookie Preferences</a>
+                    <a href="#">Legal Notices</a>
+                </div>
+                <div class="footer-column">
+                    <a href="#">Account</a>
+                    <a href="#">Ways to Watch</a>
+                    <a href="#">Corporate Information</a>
+                    <a href="#">Only on Netflix</a>
+                </div>
+                <div class="footer-column">
+                    <a href="#">Media Center</a>
+                    <a href="#">Terms of Use</a>
+                    <a href="#">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Netflix Clone. Created for educational purposes.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple scroll effect for header background
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>
