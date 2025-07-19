@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .box {
+            height: 121px;
+            width: 121px;
+            background-color: red;
+            border-radius: 70px;
+            position: absolute;
+            bottom: 0;
+            left: 0; 
+            animation: rajukaanimation 2s infinite alternate;
+            animation: rajukaanimation infinite cubic-bezier(0.445, 0.05, 0.55, 0.95) 2s ease-in-out both 3s;
+        }
+
+        .container {
+            position: relative;
+            height: 100vh;
+            width: 100vw;
+            background-color: blue;
+        }
+
+        @rajukaanimation {
+            from {
+                transform: translateY(0);
+                transform: scale(1);
+
+            }
+
+            to {
+                transform: translateY(100vh);
+                transform: scale(0.5);
+            }
+        }
+ 
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="box">
+        </div>
+    </div>
+    <!-- 
+   
+     -->
+</body>
+
+</html>
