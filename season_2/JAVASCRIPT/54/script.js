@@ -15,6 +15,7 @@ if (isTrue) {
 // console.log("You entered: " + isTrue);
 
 
-
+document.title = "JavaScript Console Messages";
+document.body.style.backgroundColor = "lightblue";
 // console.error("This is an error message");
 // console.warn("This is a warning message");
