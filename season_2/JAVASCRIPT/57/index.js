@@ -1,6 +1,6 @@
 console.log("I am a tutorial on Loops")
 
-let a = 1;
+let a = 5;
 // console.log(a)
 // console.log(a+1)
 // console.log(a+2)
@@ -9,12 +9,16 @@ for (let i = 0; i < 100; i++) {
     console.log(a + i); 
 }
 
-// let obj = {
-//     name: "Harry",
-//     role: "Programmer",
-//     company: "CodeWithHarry AI"
-// }
+let obj = {
+    name: "raju",
+    role: "Programmer",
+    company: "Rajubhai AI"
+}
  
+for (const key of Object.keys(obj)) {
+
+    console.log(key, obj[key])
+}
 // for (const key in obj) {  
 //         console.log(key)
 // }
@@ -23,14 +27,14 @@ for (let i = 0; i < 100; i++) {
 //     console.log(c)
 // }
 
-// let i = 0;
-// while (i<60000) {
+let i = 5;
+// while (i<6000) {
 //     console.log(i)
 //     i++;
 // }
 
-let i = 10;
+// let i = 10;
 do {
     console.log(i)
     i++;
-} while (i<6);
+} while (i<600);
