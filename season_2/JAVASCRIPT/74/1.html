@@ -1,0 +1,68 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    // Tailwind dark mode config
+    tailwind.config = {
+      darkMode: 'class',
+    }
+  </script>
+  <style>
+    .transition-bg {
+      transition: background-color 0.5s, color 0.5s;
+    }
+  </style>
+</head>
+<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-bg min-h-screen">
+  <nav class="p-4 flex justify-between">
+    <h1 class="text-2xl font-bold">My AI Portfolio</h1>
+    <button onclick="toggleTheme()" class="bg-gray-200 dark:bg-gray-800 px-4 py-2 rounded">Toggle Theme</button>
+  </nav>
+
+  <main class="p-4">
+    <section>
+      <h2 class="text-xl font-semibold mb-2">Generate About Me</h2>
+      <input id="prompt" class="w-full p-2 border rounded mb-2 dark:bg-gray-800" placeholder="Enter prompt for About Me" />
+      <button onclick="generateAIContent()" class="bg-blue-500 text-white px-4 py-2 rounded">Generate</button>
+      <textarea id="aiOutput" class="w-full h-40 p-2 mt-2 border rounded dark:bg-gray-800"></textarea>
+    </section>
+  </main>
+
+  <script>
+    function toggleTheme() {
+      document.documentElement.classList.toggle('dark');
+      localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+    }
+
+    window.onload = () => {
+      if (localStorage.theme === 'dark') {
+        document.documentElement.classList.add('dark');
+      }
+    }
+
+    async function generateAIContent() {
+      const prompt = document.getElementById('prompt').value;
+      const aiOutput = document.getElementById('aiOutput');
+
+      const res = await fetch("https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=YOUR_API_KEY", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          contents: [{ parts: [{ text: prompt }] }]
+        })
+      });
+
+      const data = await res.json();
+      const text = data.candidates?.[0]?.content?.parts?.[0]?.text || "No response";
+      aiOutput.value = text;
+    }
+  </script>
+</body>
+</html>
