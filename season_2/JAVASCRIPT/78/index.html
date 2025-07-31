@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hacking Simulator</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #000;
+            color: #0F0;
+            font-family: 'Courier New', Courier, monospace;
+            /* margin: 20px; */
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            width: 40vw;
+            height: 45vh;
+            margin: auto;
+            padding: 20px;
+            background-color: #111;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+        }
+
+        .output {
+            white-space: pre-wrap;
+        }
+
+        .blinking-dots span {
+            animation: blink 1s infinite steps(1);
+        }
+
+        @keyframes blink {
+            0% {
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="output" class="output container"></div>
+
+    <script>
+        const messages = [
+            "Initializing Hacking",
+            "Reading your Files",
+            "Password files Detected",
+            "Sending all passwords and personal files to server",
+            "Cleaning up"
+        ];
+        const outputDiv = document.getElementById("output");
+
+        async function simulateHacking() {
+            for (const message of messages) {
+                const delay = Math.floor(Math.random() * 7000) + 1000; 
+                const messageWithDots = `${message}<span class="blinking-dots">...</span>`; 
+                outputDiv.innerHTML += messageWithDots + "\n";
+                await new Promise(resolve => setTimeout(resolve, delay)); 
+            }
+        }
+
+        simulateHacking();
+    </script>
+</body>
+
+</html>
