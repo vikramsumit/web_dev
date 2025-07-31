@@ -12,7 +12,7 @@ button.addEventListener('contextmenu', ()=> {
 });
 
 document.addEventListener('keydown', (e)=> {
-    console.log(e.key,e.keyCode);
+    console.log(e , e.key,e.keyCode);
     if (e.key === 'Enter') {
         document.querySelector(".box").innerHTML = 'Enter Key Pressed!';
     }

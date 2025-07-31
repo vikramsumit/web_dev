@@ -43,7 +43,7 @@
         })
 
         document.querySelector(".childContainer").addEventListener("click", (e) => {
-            e.stopPropagation()
+            // e.stopPropagation()
             alert("childContainer Was clicked")
         })
 
@@ -61,11 +61,18 @@
         //     document.querySelector(".childContainer").style.background = getRandomColor();
         // }, 1000);
 
+        let a = setInterval(() => {
+            document.querySelectorAll(".childContainer, .container").forEach(el => {
+                el.style.background = getRandomColor();
+            });
+        }, 1000);
+
+
         // console.log(a)
 
-        let a = setTimeout(() => {
-            document.querySelector(".childContainer").style.background = getRandomColor();
-        }, 5000);
+        // let a = setTimeout(() => {
+        //     document.querySelector(".childContainer").style.background = getRandomColor();
+        // }, 3000);
 
         console.log(a)
 
