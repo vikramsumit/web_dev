@@ -7,8 +7,8 @@ console.log(a1);
     // let b = await sleep()
     // console.log(b);
 
-    // let [x, y, rest] = [1, 5, 7, 8, 9, 10]
-    // console.log(x, y, rest)
+    let [x, y, rest] = [1, 5, 7, 8, 9, 10]
+    console.log(x, y, rest)
 
     let obj = {
         a: 1, 
