@@ -3,21 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modern Web Solutions</title>
+    <title>Modern Website with Dark Mode</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* CSS Variables for consistent theming */
+        /* CSS Variables for Theming */
         :root {
-            --primary: #2563eb;
-            --primary-dark: #1d4ed8;
-            --secondary: #7c3aed;
-            --accent: #ec4899;
-            --light: #f8fafc;
-            --dark: #1e293b;
-            --gray: #64748b;
-            --gray-light: #e2e8f0;
-            --border-radius: 8px;
-            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            --transition: all 0.3s ease;
+            /* Light Theme */
+            --bg-light: #f8fafc;
+            --text-light: #1e293b;
+            --card-light: #ffffff;
+            --primary-light: #2563eb;
+            --secondary-light: #7c3aed;
+            --accent-light: #ec4899;
+            --gray-light: #64748b;
+            --border-light: #e2e8f0;
+            --shadow-light: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            
+            /* Dark Theme */
+            --bg-dark: #0f172a;
+            --text-dark: #f1f5f9;
+            --card-dark: #1e293b;
+            --primary-dark: #3b82f6;
+            --secondary-dark: #a38fd4;
+            --accent-dark: #ec4899;
+            --gray-dark: #94a3b8;
+            --border-dark: #334155;
+            --shadow-dark: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+            
+            /* Active Theme (Defaults to Light) */
+            --bg: var(--bg-light);
+            --text: var(--text-light);
+            --card: var(--card-light);
+            --primary: var(--primary-light);
+            --secondary: var(--secondary-light);
+            --accent: var(--accent-light);
+            --gray: var(--gray-light);
+            --border: var(--border-light);
+            --shadow: var(--shadow-light);
+        }
+
+        /* Dark Mode Toggle */
+        #dark-mode-toggle {
+            display: none;
+        }
+
+        .toggle-label {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 30px;
+            background-color: var(--gray);
+            border-radius: 30px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .toggle-label:after {
+            content: '';
+            position: absolute;
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            background-color: white;
+            top: 2px;
+            left: 2px;
+            transition: transform 0.3s;
+        }
+
+        #dark-mode-toggle:checked + .toggle-label {
+            background-color: var(--primary);
+        }
+
+        #dark-mode-toggle:checked + .toggle-label:after {
+            transform: translateX(30px);
+        }
+
+        /* Apply Dark Theme when Toggle is Checked */
+        #dark-mode-toggle:checked ~ * {
+            --bg: var(--bg-dark);
+            --text: var(--text-dark);
+            --card: var(--card-dark);
+            --primary: var(--primary-dark);
+            --secondary: var(--secondary-dark);
+            --accent: var(--accent-dark);
+            --gray: var(--gray-dark);
+            --border: var(--border-dark);
+            --shadow: var(--shadow-dark);
         }
 
         /* Base Styles */
@@ -25,13 +96,14 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            transition: background-color 0.3s, color 0.3s, border-color 0.3s;
         }
 
         body {
             font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
             line-height: 1.6;
-            color: var(--dark);
-            background-color: var(--light);
+            color: var(--text);
+            background-color: var(--bg);
         }
 
         .container {
@@ -50,11 +122,11 @@
         a {
             text-decoration: none;
             color: var(--primary);
-            transition: var(--transition);
+            transition: all 0.3s ease;
         }
 
         a:hover {
-            color: var(--primary-dark);
+            color: var(--secondary);
         }
 
         .btn {
@@ -62,15 +134,15 @@
             padding: 0.75rem 1.5rem;
             background-color: var(--primary);
             color: white;
-            border-radius: var(--border-radius);
+            border-radius: 8px;
             font-weight: 600;
-            transition: var(--transition);
+            transition: all 0.3s ease;
             border: none;
             cursor: pointer;
         }
 
         .btn:hover {
-            background-color: var(--primary-dark);
+            background-color: var(--secondary);
             transform: translateY(-2px);
             box-shadow: var(--shadow);
         }
@@ -122,7 +194,7 @@
 
         /* Header Styles */
         header {
-            background-color: white;
+            background-color: var(--card);
             box-shadow: var(--shadow);
             position: sticky;
             top: 0;
@@ -139,7 +211,7 @@
         .logo {
             font-size: 1.8rem;
             font-weight: 700;
-            color: var(--dark);
+            color: var(--text);
         }
 
         .logo span {
@@ -153,12 +225,18 @@
         }
 
         nav a {
-            color: var(--dark);
+            color: var(--text);
             font-weight: 500;
         }
 
         nav a:hover {
             color: var(--primary);
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
         }
 
         .mobile-menu-btn {
@@ -167,14 +245,26 @@
             border: none;
             font-size: 1.5rem;
             cursor: pointer;
-            color: var(--dark);
+            color: var(--text);
+        }
+
+        /* Theme Toggle Container */
+        .theme-toggle {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .theme-icon {
+            font-size: 1.2rem;
         }
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
             padding: 6rem 0;
             text-align: center;
+            color: white;
         }
 
         .hero-content {
@@ -186,12 +276,11 @@
             font-size: 3.5rem;
             line-height: 1.2;
             margin-bottom: 1.5rem;
-            color: var(--dark);
         }
 
         .hero-subtitle {
             font-size: 1.25rem;
-            color: var(--gray);
+            opacity: 0.9;
             margin-bottom: 2.5rem;
         }
 
@@ -209,16 +298,17 @@
         }
 
         .feature-card {
-            background: white;
+            background: var(--card);
             padding: 2rem;
-            border-radius: var(--border-radius);
+            border-radius: 8px;
             box-shadow: var(--shadow);
-            transition: var(--transition);
+            transition: all 0.3s ease;
+            border: 1px solid var(--border);
         }
 
         .feature-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
         }
 
         .feature-icon {
@@ -237,11 +327,16 @@
         .feature-title {
             font-size: 1.5rem;
             margin-bottom: 1rem;
+            color: var(--text);
+        }
+
+        .feature-text {
+            color: var(--gray);
         }
 
         /* Testimonials */
         .testimonials {
-            background-color: #f8fafc;
+            background-color: var(--card);
         }
 
         .testimonial-grid {
@@ -251,27 +346,30 @@
         }
 
         .testimonial-card {
-            background: white;
+            background: var(--bg);
             padding: 2rem;
-            border-radius: var(--border-radius);
+            border-radius: 8px;
             box-shadow: var(--shadow);
+            border: 1px solid var(--border);
         }
 
         .testimonial-text {
             font-style: italic;
             margin-bottom: 1.5rem;
             position: relative;
+            color: var(--text);
         }
 
         .testimonial-text::before {
             content: '"';
             font-size: 4rem;
-            color: var(--gray-light);
+            color: var(--gray);
             position: absolute;
             top: -1rem;
             left: -1rem;
             line-height: 1;
             z-index: 0;
+            opacity: 0.3;
         }
 
         .testimonial-author {
@@ -299,6 +397,7 @@
 
         .author-name {
             font-weight: 600;
+            color: var(--text);
         }
 
         .author-role {
@@ -332,16 +431,17 @@
         }
 
         .cta-btn:hover {
-            background: var(--light);
+            background: rgba(255, 255, 255, 0.9);
             transform: translateY(-2px);
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
         }
 
         /* Footer */
         footer {
-            background-color: var(--dark);
-            color: white;
+            background-color: var(--card);
+            color: var(--text);
             padding: 4rem 0 2rem;
+            border-top: 1px solid var(--border);
         }
 
         .footer-grid {
@@ -356,10 +456,11 @@
             font-weight: 700;
             margin-bottom: 1rem;
             display: block;
+            color: var(--text);
         }
 
         .footer-text {
-            color: #cbd5e1;
+            color: var(--gray);
             margin-bottom: 1.5rem;
         }
 
@@ -372,15 +473,19 @@
             width: 40px;
             height: 40px;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
+            background: var(--bg);
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: var(--transition);
+            transition: all 0.3s ease;
+            color: var(--text);
+            border: 1px solid var(--border);
         }
 
         .social-link:hover {
             background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
         }
 
         .footer-heading {
@@ -388,6 +493,7 @@
             margin-bottom: 1.5rem;
             position: relative;
             padding-bottom: 0.5rem;
+            color: var(--text);
         }
 
         .footer-heading::after {
@@ -409,20 +515,20 @@
         }
 
         .footer-links a {
-            color: #cbd5e1;
-            transition: var(--transition);
+            color: var(--gray);
+            transition: all 0.3s ease;
         }
 
         .footer-links a:hover {
-            color: white;
+            color: var(--primary);
             padding-left: 5px;
         }
 
         .copyright {
             text-align: center;
             padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: #94a3b8;
+            border-top: 1px solid var(--border);
+            color: var(--gray);
             font-size: 0.9rem;
         }
 
@@ -453,10 +559,21 @@
                 width: 100%;
                 max-width: 300px;
             }
+            
+            .header-actions {
+                gap: 0.5rem;
+            }
+            
+            .theme-text {
+                display: none;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Dark Mode Toggle Checkbox (Hidden) -->
+    <input type="checkbox" id="dark-mode-toggle">
+    
     <!-- Header -->
     <header>
         <div class="container header-container">
@@ -471,6 +588,14 @@
                 </ul>
                 <button class="mobile-menu-btn">☰</button>
             </nav>
+            <div class="header-actions">
+                <div class="theme-toggle">
+                    <span class="theme-icon"><i class="fas fa-sun"></i></span>
+                    <label for="dark-mode-toggle" class="toggle-label"></label>
+                    <span class="theme-icon"><i class="fas fa-moon"></i></span>
+                    <span class="theme-text">Dark Mode</span>
+                </div>
+            </div>
         </div>
     </header>
 
@@ -494,21 +619,21 @@
             
             <div class="features-grid">
                 <div class="feature-card">
-                    <div class="feature-icon">💻</div>
+                    <div class="feature-icon"><i class="fas fa-laptop-code"></i></div>
                     <h3 class="feature-title">Web Development</h3>
-                    <p>Custom websites and web applications built with the latest technologies to ensure performance and scalability.</p>
+                    <p class="feature-text">Custom websites and web applications built with the latest technologies to ensure performance and scalability.</p>
                 </div>
                 
                 <div class="feature-card">
-                    <div class="feature-icon">📱</div>
+                    <div class="feature-icon"><i class="fas fa-mobile-alt"></i></div>
                     <h3 class="feature-title">App Development</h3>
-                    <p>Native and cross-platform mobile applications designed to provide seamless user experiences across all devices.</p>
+                    <p class="feature-text">Native and cross-platform mobile applications designed to provide seamless user experiences across all devices.</p>
                 </div>
                 
                 <div class="feature-card">
-                    <div class="feature-icon">🎨</div>
+                    <div class="feature-icon"><i class="fas fa-paint-brush"></i></div>
                     <h3 class="feature-title">UI/UX Design</h3>
-                    <p>User-centered design solutions that enhance usability, engagement, and conversion rates for your digital products.</p>
+                    <p class="feature-text">User-centered design solutions that enhance usability, engagement, and conversion rates for your digital products.</p>
                 </div>
             </div>
         </div>
@@ -574,10 +699,10 @@
                     <a href="#" class="footer-brand">ModernSolutions</a>
                     <p class="footer-text">Creating innovative digital solutions that drive growth and engagement for businesses of all sizes.</p>
                     <div class="social-links">
-                        <a href="#" class="social-link">f</a>
-                        <a href="#" class="social-link">t</a>
-                        <a href="#" class="social-link">in</a>
-                        <a href="#" class="social-link">ig</a>
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
                 
