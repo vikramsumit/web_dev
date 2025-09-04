@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testing Post  Request</title>
+</head>
+
+<body>
+    <script>
+        // async function sendPostRequest() {
+        //     const response = await fetch('/about', {
+        //         method: 'POST',
+        //         headers: {
+        //             'Content-Type': 'application/json'
+        //         },
+        //         body: JSON.stringify({ message: 'Hello from the client!' })
+        //     });
+        //     const data = await response.text();
+        //     console.log(data);
+        // }
+        async function testpost() {
+            let a = await fetch("/", {
+                method: "POST"
+            })
+            let b = await a.text()
+            console.log(b)
+        }
+        async function testpost1() {
+            let a = await fetch("/", {
+                method: "PUT"
+            })
+            let b = await a.text()
+            console.log(b)
+        }
+        async function testpost2() {
+            let a = await fetch("/", {
+                method: "DELETE"
+            })
+            let b = await a.text()
+            console.log(b)
+        }
+
+        testpost()
+        testpost1()
+        testpost2()
+    </script>
+</body>
+
+</html>
