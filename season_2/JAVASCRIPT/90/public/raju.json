@@ -1,0 +1,70 @@
+
+{
+  "page": {
+    "title": "Comprehensive JSON Example",
+    "description": "This is a large JSON object that demonstrates the various data structures and features of the JSON format.",
+    "version": "1.0",
+    "data": {
+      "numbers": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "strings": [
+        "apple",
+        "banana",
+        "cherry",
+        "date",
+        "elderberry"
+      ],
+      "booleans": [
+        true,
+        false,
+        true,
+        false,
+        true
+      ],
+      "nullValues": [
+        null,
+        null,
+        null
+      ],
+      "objects": [
+        {
+          "name": "John Doe",
+          "age": 35,
+          "email": "john.doe@example.com"
+        },
+        {
+          "name": "Jane Smith",
+          "age": 28,
+          "email": "jane.smith@example.com"
+        },
+        {
+          "name": "Bob Johnson",
+          "age": 42,
+          "email": "bob.johnson@example.com"
+        }
+      ],
+      "nestedObject": {
+        "innerObject": {
+          "key1": "value1",
+          "key2": "value2"
+        },
+        "innerArray": [
+          {
+            "subKey1": "subValue1",
+            "subKey2": "subValue2"
+          },
+          {
+            "subKey1": "subValue3",
+            "subKey2": "subValue4"
+          }
+        ]
+      }
+    }
+  }
+}
+
