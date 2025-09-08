@@ -1,0 +1,9 @@
+# Ignore everything
+*
+
+# But not these file types
+!*.js
+!*.json
+
+# Keep the .gitignore file itself
+!.gitignore
