@@ -1,0 +1,10 @@
+- [x] Use environment variables for MongoDB connection string and server port
+- [x] Add validation for the employee data schema
+- [x] Modularize the code by separating routes, models, and server setup
+- [x] Improve error handling with descriptive messages and logging
+- [x] Add logging middleware for incoming requests
+- [x] Optimize dummy data generation (kept as is, random is sufficient)
+- [x] Add comments and documentation
+- [x] Add pagination or filtering for /employees route
+- [ ] Secure API endpoints (authentication/rate limiting) - optional for now
+- [x] Ensure consistent async/await usage
