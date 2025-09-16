@@ -9,4 +9,17 @@
 /* inner shadow (only one size) */
 /* .shadow-inner { box-shadow: inset 0 px 4px 0 rgba(133, 130, 5, 0.05); } */
 
-
+@theme{
+    /* --breakpoints: {
+        'sm': '640px',
+        'md': '768px',
+        'lg': '1024px',
+        'xl': '1280px',
+        '2xl': '1536px',
+    } */
+    --padding-10:100px;
+    --margin-10:100px;
+    --size-15:60px;
+    --padding-c-50:50px;
+    --padding-wrapper:20px;
+}
