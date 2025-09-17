@@ -24,12 +24,77 @@
     --padding-wrapper:20px;
 }
 
-/* @tailwind base; */
-/* @tailwind components; */
+@tailwind base;
+@tailwind components;
 @tailwind utilities;
 
+/* @layer base{
+    h1{
+        font-size: 50px;
+    }
+    h2{
+        font-size: 37px;
+    }
+    h3{
+        font-size: 25px;
+    }
+    button{
+        cursor: pointer;
+        border: 3px solid black;
+        border-radius: 10px;
+        padding: 10px 20px;
+        font-size: 20px;
+        font-weight: bold;
+        background-color: white;
+        transition: all 0.3s ease;
+
+    }
+} */
+
+/* same thing in tailwind css */
 @layer base{
     h1{
-        font-size: 55px;
+        @apply text-5xl;
+    }
+    h2{
+        @apply text-4xl;
+    }
+    h3{
+        @apply text-3xl;
+    }
+    button{
+        @apply cursor-pointer border-3 border-black rounded-lg px-5 py-2.5 text-2xl font-bold bg-white transition-all duration-300 ease-in-out;
+    }
+
+}
+
+
+
+
+
+
+
+/* @layer components{
+    .btn{
+        @apply cursor-pointer border-3 border-black rounded-lg px-5 py-2.5 text-2xl font-bold bg-white transition-all duration-300 ease-in-out;
     }
 }
+@layer utilities{
+    .size-15{
+        width: var(--size-15);
+        height: var(--size-15);
+    }
+    .padding-10{
+        padding: var(--padding-10);
+    }
+    .margin-10{
+        margin: var(--margin-10);
+    }
+    .padding-c-50{
+        padding: var(--padding-c-50);
+    }
+    .padding-wrapper{
+        padding-left: var(--padding-wrapper);
+        padding-right: var(--padding-wrapper);
+    }
+} */
