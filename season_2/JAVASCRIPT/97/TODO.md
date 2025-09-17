@@ -8,3 +8,5 @@
 - [x] Add pagination or filtering for /employees route
 - [ ] Secure API endpoints (authentication/rate limiting) - optional for now
 - [x] Ensure consistent async/await usage
+
+- hit post request from postman/curl for generation or updation of random data
