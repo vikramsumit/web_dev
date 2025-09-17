@@ -23,3 +23,13 @@
     --padding-c-50:50px;
     --padding-wrapper:20px;
 }
+
+/* @tailwind base; */
+/* @tailwind components; */
+@tailwind utilities;
+
+@layer base{
+    h1{
+        font-size: 55px;
+    }
+}
