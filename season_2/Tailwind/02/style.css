@@ -1,6 +1,16 @@
 /* % npx @tailwindcss/cli -i ./style.css -o ./output.css --watch */
 @import "tailwindcss";
 
+@layer utilities {
+    .m-22 {
+        margin: 22px;
+    }
+    .btn-primary {
+        @apply bg-red-200 rounded p-2 text-white hover:bg-red-700 cursor-pointer border-3
+        hover:border-gray-400 px-5 py-2.5 text-2xl font-bold transition-all duration-300 ease-in-out;
+    }
+}
+
 /* outer shadows */
 .shadow-sm { box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); }
 .shadow-md { box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1); }
@@ -52,7 +62,7 @@
 } */
 
 /* same thing in tailwind css */
-@layer base{
+/* @layer base{
     h1{
         @apply text-5xl;
     }
@@ -66,7 +76,7 @@
         @apply cursor-pointer border-3 border-black rounded-lg px-5 py-2.5 text-2xl font-bold bg-white transition-all duration-300 ease-in-out;
     }
 
-}
+} */
 
 
 
