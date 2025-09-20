@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Art of Minimalist Gardening</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="output_9.css">
+    <style>
+        .parallax {
+            background-image: url('https://images.unsplash.com/photo-1542152203-518206410427?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NTcyMjUwNDM&ixlib=rb-1.2.1&q=80&w=1080');
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-800 bg-gray-50">
+
+    <header class="bg-white shadow-md fixed w-full top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-gray-900">Minimalist Gardens 🌱</a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="text-gray-600 hover:text-green-500 transition-colors duration-300">Home</a>
+                <a href="#about" class="text-gray-600 hover:text-green-500 transition-colors duration-300">About</a>
+                <a href="#gallery" class="text-gray-600 hover:text-green-500 transition-colors duration-300">Gallery</a>
+                <a href="#contact" class="text-gray-600 hover:text-green-500 transition-colors duration-300">Contact</a>
+            </div>
+            <div class="md:hidden">
+                <button id="menu-button" class="text-gray-600 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
+            <a href="#home" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Home</a>
+            <a href="#about" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">About</a>
+            <a href="#gallery" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Gallery</a>
+            <a href="#contact" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Contact</a>
+        </div>
+    </header>
+    
+    <section id="home" class="parallax h-screen flex items-center justify-center text-center text-white">
+        <div class="bg-black bg-opacity-40 p-12 rounded-lg max-w-2xl mx-auto">
+            <h1 class="text-5xl md:text-6xl font-extrabold leading-tight tracking-wide mb-4">Cultivate Serenity</h1>
+            <p class="text-xl md:text-2xl font-medium">Discover the profound beauty in simplicity through minimalist gardening.</p>
+            <a href="#gallery" class="mt-8 inline-block px-8 py-3 bg-green-500 text-white font-bold rounded-full hover:bg-green-600 transition-colors duration-300">Explore</a>
+        </div>
+    </section>
+
+    <section id="about" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center text-gray-900 mb-12">The Philosophy of Less</h2>
+            <div class="md:flex items-center space-y-10 md:space-y-0 md:space-x-12">
+                <div class="md:w-1/2">
+                    <img src="img/19.jpg" alt="Minimalist garden with a single plant" class="rounded-xl shadow-lg w-full">
+                </div>
+                <div class="md:w-1/2">
+                    <p class="text-lg text-gray-700 leading-relaxed mb-6">Minimalist gardening is an intentional practice, focusing on a few carefully chosen elements to create a powerful aesthetic. It’s about creating space—both physically and mentally—by simplifying designs, reducing clutter, and highlighting the natural beauty of a small number of plants and materials.</p>
+                    <p class="text-lg text-gray-700 leading-relaxed">This approach encourages a deeper connection with each element, celebrating the form and texture of individual plants. It's not about what you remove, but what you highlight, resulting in a serene and balanced environment that is easy to maintain and a joy to behold.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center text-gray-900 mb-12">Visual Serenity</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-transform transform hover:scale-105 duration-300">
+                    <img src="img/18.jpg" alt="Minimalist rock garden" class="w-full h-64 object-cover">
+                    <div class="p-6 text-center">
+                        <h3 class="font-bold text-xl text-gray-900">Rock & Plant Harmony</h3>
+                        <p class="text-gray-600 mt-2">A beautiful balance of natural textures.</p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-transform transform hover:scale-105 duration-300">
+                    <img src="img/64.jpg" class="w-full h-64 object-cover">
+                    <div class="p-6 text-center">
+                        <h3 class="font-bold text-xl text-gray-900">Simplicity in a Pot</h3>
+                        <p class="text-gray-600 mt-2">Highlighting the beauty of a single succulent.</p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-transform transform hover:scale-105 duration-300">
+                    <img src="img/53.jpeg" alt="Minimalist bonsai tree display" class="w-full h-64 object-cover">
+                    <div class="p-6 text-center">
+                        <h3 class="font-bold text-xl text-gray-900">The Zen of Bonsai</h3>
+                        <p class="text-gray-600 mt-2">A small tree with a big presence.</p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-transform transform hover:scale-105 duration-300">
+                    <img src="img/39.jpeg">
+                    <div class="p-6 text-center">
+                        <h3 class="font-bold text-xl text-gray-900">Rooftop Oasis</h3>
+                        <p class="text-gray-600 mt-2">Creating peace in an urban landscape.</p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-transform transform hover:scale-105 duration-300">
+                    <img src="img/62.jpeg" alt="Minimalist garden with pathway" class="w-full h-64 object-cover">
+                    <div class="p-6 text-center">
+                        <h3 class="font-bold text-xl text-gray-900">Path to Calm</h3>
+                        <p class="text-gray-600 mt-2">Guiding the eye with simple lines.</p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-transform transform hover:scale-105 duration-300">
+                    <img src="img/25.jpg" alt="Indoor minimalist plant display" class="w-full h-64 object-cover">
+                    <div class="p-6 text-center">
+                        <h3 class="font-bold text-xl text-gray-900">Indoor Sanctuary</h3>
+                        <p class="text-gray-600 mt-2">Bringing the minimalist aesthetic indoors.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center text-gray-900 mb-12">Get in Touch</h2>
+            <div class="max-w-xl mx-auto bg-white p-8 rounded-xl shadow-lg">
+                <form class="space-y-6">
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
+                        <input type="text" id="name" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                        <input type="email" id="email" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500">
+                    </div>
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
+                        <textarea id="message" rows="4" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500"></textarea>
+                    </div>
+                    <div class="flex justify-end">
+                        <button type="submit" class="px-6 py-2 bg-green-500 text-white font-bold rounded-md hover:bg-green-600 transition-colors duration-300">Send</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; 2025 Minimalist Gardens. All rights reserved.</p>
+            <p class="mt-2 text-sm text-gray-400">Designed with passion and simplicity.</p>
+        </div>
+    </footer>
+
+    <script>
+        const menuButton = document.getElementById('menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
