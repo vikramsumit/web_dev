@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Clone - Dark Mode</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="icon" href="https://www.google.com/favicon.ico">
+    <style>
+        body {
+            background-color: #202124; /* Dark background similar to the image */
+        }
+        .search-bar {
+            background-color: #303134; /* Darker grey for search bar */
+            border: 1px solid #5f6368; /* Subtle border */
+        }
+        .search-bar:hover {
+            background-color: #3c4043;
+            box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
+            border-color: #3c4043; /* Remove visible border on hover */
+        }
+        .search-bar:focus-within {
+            background-color: #3c4043;
+            box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
+            border-color: #3c4043; /* Remove visible border on focus */
+        }
+        .search-button {
+            background-color: #303134; /* Button background */
+            color: #e8eaed; /* Light text for buttons */
+        }
+        .search-button:hover {
+            background-color: #3c4043;
+            border: 1px solid #5f6368;
+        }
+        .footer-bg {
+            background-color: #171717; /* Even darker footer background */
+        }
+    </style>
+</head>
+<body class="font-sans flex flex-col min-h-screen text-gray-300">
+
+    <header class="flex justify-between items-center p-4 text-sm">
+        <div class="flex items-center space-x-4">
+            <a href="#" class="hover:underline text-gray-400">About</a>
+            <a href="#" class="hover:underline text-gray-400">Store</a>
+        </div>
+        <div class="flex items-center space-x-4">
+            <a href="#" class="hover:underline text-gray-400">Gmail</a>
+            <a href="#" class="hover:underline text-gray-400">Images</a>
+            <button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-gray-700">
+                <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+            <button class="w-10 h-10 bg-purple-600 text-white rounded-full font-bold flex items-center justify-center text-lg">S</button>
+        </div>
+    </header>
+
+    <main class="flex flex-col items-center justify-center flex-grow p-4">
+        <div class="mb-8">
+            <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_light_272x92dp.png" alt="Google" class="h-16 md:h-24">
+        </div>
+
+        <div class="w-full max-w-xl mx-auto flex items-center rounded-full search-bar transition-all duration-200">
+            <div class="p-3 text-gray-500 ml-2">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+            </div>
+            <input type="text" class="flex-grow py-3 px-2 focus:outline-none bg-transparent text-gray-200" style="caret-color: #4285F4;">
+            <div class="p-3 flex items-center space-x-2 mr-2">
+                <svg class="w-5 h-5 text-gray-400 cursor-pointer hover:text-white transition-colors duration-200" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7 4a3 3 0 016 0v4a3 3 0 11-6 0V4zm4 10.93A7.001 7.001 0 0017 8a1 1 0 10-2 0 5 5 0 01-5 5v1.085c.321.442.593.9.824 1.378l.24.479a1 1 0 01-1.79 1.446l-.24-.48c-.231-.478-.503-.936-.824-1.378V13a5 5 0 01-5-5 1 1 0 10-2 0 7.001 7.001 0 006 6.93V17a1 1 0 102 0v-2.07z" clip-rule="evenodd"></path></svg>
+                <img src="data:image/svg+xml;base64,PHN2ZyBjbGFzcz0ia2V5Ym9hcmQtaWNvbiIgZm9jdXNhYmxlPSJmYWxzZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgMjQgMjQiPjxwYXRoIGQ9Ik0xMSAyLjYyNUwxMyAyLjYyNSA1LjA2MyAxOCAxNiAxOCAxMiAyMS4zNzUgOC45MzggMTggMi4zNzUgMTggMTEgMi42MjVaIiBmaWxsPSIjRkZGRkZGIj48L3BhdGg+PC9zdmc+" alt="AI Mode" class="h-5 w-5 opacity-70">
+                <span class="text-xs font-medium text-gray-400">AI Mode</span>
+            </div>
+        </div>
+
+        <div class="flex space-x-4 mt-8">
+            <button class="search-button text-sm py-2 px-4 rounded-md hover:ring-1 hover:ring-gray-600 transition-colors duration-200">Google Search</button>
+            <button class="search-button text-sm py-2 px-4 rounded-md hover:ring-1 hover:ring-gray-600 transition-colors duration-200">I'm Feeling Lucky</button>
+        </div>
+
+        <div class="mt-8 text-sm text-gray-400">
+            Google offered in: <a href="#" class="text-blue-500 hover:underline">हिन्दी</a> <a href="#" class="text-blue-500 hover:underline">বাংলা</a> <a href="#" class="text-blue-500 hover:underline">తెలుగు</a> <a href="#" class="text-blue-500 hover:underline">मराठी</a> <a href="#" class="text-blue-500 hover:underline">தமிழ்</a> <a href="#" class="text-blue-500 hover:underline">ગુજરાતી</a> <a href="#" class="text-blue-500 hover:underline">ಕನ್ನಡ</a> <a href="#" class="text-blue-500 hover:underline">മലയാളം</a> <a href="#" class="text-blue-500 hover:underline">ਪੰਜਾਬੀ</a>
+        </div>
+    </main>
+
+    <footer class="footer-bg text-sm text-gray-400 py-4">
+        <div class="border-b border-gray-700 px-8 py-3 mb-2">
+            India
+        </div>
+        <div class="container mx-auto px-8 flex flex-col md:flex-row justify-between items-center text-gray-400">
+            <div class="space-x-4 mb-2 md:mb-0">
+                <a href="#" class="hover:underline">Advertising</a>
+                <a href="#" class="hover:underline">Business</a>
+                <a href="#" class="hover:underline">How Search works</a>
+            </div>
+            <div class="space-x-4">
+                <a href="#" class="hover:underline">Privacy</a>
+                <a href="#" class="hover:underline">Terms</a>
+                <a href="#" class="hover:underline">Settings</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
