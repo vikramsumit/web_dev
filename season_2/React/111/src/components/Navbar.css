@@ -1,0 +1,45 @@
+.navbar {
+  background-color: rgb(240, 240, 139);
+  overflow: hidden;
+}
+
+.navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-around;
+}
+
+.navbar ul li {
+  margin: 0 10px;
+}
+
+.navbar ul li a {
+  display: block;
+  color: rgb(0, 0, 0);
+  text-align: center;
+  padding: 12px 20px;
+  text-decoration: none;
+  font-size: 18px;
+  font-family: 'Arial', sans-serif;
+  border-radius: 4px;
+  transition: background-color 0.3s, color 0.3s, font-size 0.3s, padding 0.3s;
+}
+
+/* Hover State */
+.navbar ul li a:hover {
+  background-color: #ddd;
+  color: rgb(77, 37, 37);
+  font-size: 19px;
+  padding: 13px 21px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Active Link State */
+.navbar ul li a.active {
+  background-color: #04AA6D;
+  color: white;
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
