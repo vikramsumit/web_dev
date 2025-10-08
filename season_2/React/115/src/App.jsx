@@ -15,7 +15,7 @@ const Layout = () => {
     <div className="flex flex-col min-h-screen">
       <Navbar />
       <div className="flex-grow container mx-auto px-4 py-6">
-        <div className="mb-4 text-gray-600">Lorem ipsum dolor sit amet.</div>
+        {/* <div className="mb-4 text-gray-600">Lorem ipsum dolor sit amet.</div> */}
         <Outlet /> {/* This renders the current page (Home, About, etc.) */}
       </div>
       <Footer />
