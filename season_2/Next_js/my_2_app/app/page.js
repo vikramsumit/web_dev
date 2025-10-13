@@ -1,5 +1,6 @@
 // "use client"
 // import { useState, useEffect} from 'react';
+import Navbar from '@/component/Navbar';
 import fs from 'fs/promises';
 // import Image from "next/image";
 
@@ -16,6 +17,7 @@ export default function Home() {
 
   return (
     <div>
+      <Navbar />
       <h1>Hello, Next.js!</h1>
       <p>This is a simple Next.js application.</p>
     </div>
