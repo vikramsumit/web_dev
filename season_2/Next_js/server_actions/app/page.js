@@ -1,26 +1,7 @@
 import Image from "next/image";
-import fs from "fs/promises";
+import { submitAction } from "@/actions/form";
 
 export default function Home() {
-
-  const submitAction = async (formData) => {
-    "use server";
-    const name = formData.get("name");
-    const address = formData.get("address");
-    const email = formData.get("email");
-
-    console.log("Name:", name);
-    console.log("Address:", address);
-    console.log("Email:", email);
-
-    fs.writeFile("raju.txt", `Name: ${name}\nAddress: ${address}\nEmail: ${email}\n`, (err) => {
-      if (err) {
-        console.error("Error writing to file", err);
-      } else {
-        console.log("Data written to file successfully");
-      }
-    });
-  };
 
   return (
     <div className="min-h-screen bg-gray-900 flex items-center justify-center p-4">
