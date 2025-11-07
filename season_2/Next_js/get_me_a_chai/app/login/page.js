@@ -1,8 +1,10 @@
 "use client";
 
-import React, { useState } from "react";
-// import { useSession,signIn, signOut,  } from "next-auth/react";
-// import Navbar from "../components/Navbar.js";
+import React, { useState, useEffect } from "react";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import SessionWrapper from "@/components/SessionWrapper";
+import { useSession, signIn, signOut, } from "next-auth/react";
 
 export default function Page() {
   const [email, setEmail] = useState("");
@@ -11,6 +13,21 @@ export default function Page() {
   const [submitted, setSubmitted] = useState(false);
   const [emailFocused, setEmailFocused] = useState(false);
   const [passwordFocused, setPasswordFocused] = useState(false);
+  const { data: session } = useSession();
+
+  useEffect(() => {
+    document.title = "Login - Get Me A Chai"
+    console.log(session)
+    if (session) {
+      router.push('/dashboard')
+    }
+  }, [])
+
+
+  // if (session) {
+  //   const router = useRouter();
+  //   router.push("/dashboard");
+  // }
 
   function validate() {
     const emailValid = /\S+@\S+\.\S+/.test(email);
@@ -125,9 +142,15 @@ export default function Page() {
                 <a className="text-sky-300 hover:underline" href="#forgot">forget password</a>
               </div>
 
-              <button type="submit" className="w-full rounded-xl py-2 px-4 font-semibold text-white bg-gradient-to-r from-indigo-600 to-cyan-500 shadow-lg hover:translate-y-[-2px] transition-transform">
+              <Link
+                href="/dashboard"
+                className="w-full block text-center rounded-xl py-2 px-4 font-semibold text-white bg-gradient-to-r from-indigo-600 to-cyan-500 shadow-lg hover:translate-y-[-2px] transition-transform"
+              >
                 Log in
-              </button>
+              </Link>
+              {/* <button href="/dashboard" type="submit" className="w-full rounded-xl py-2 px-4 font-semibold text-white bg-gradient-to-r from-indigo-600 to-cyan-500 shadow-lg hover:translate-y-[-2px] transition-transform">
+                Log in
+              </button> */}
 
               <div className="flex flex-col gap-2 items-center">
                 <button
@@ -215,8 +238,10 @@ export default function Page() {
                 </button>
 
 
-                <button onClick={() => { signIn("github") }}
-                  className=" flex justify-center items-center w-full rounded-xl py-2 px-4 font-semibold bg-gradiant-to-r from-red-200 to bg-red-400 shadow-lg hover:translate-y-[-2px] transition-transform">
+                <button
+                  type="button"
+                  onClick={() => { signIn("github") }}
+                  className=" flex justify-center items-center w-full rounded-xl py-2 px-4 font-semibold bg-gradiant-to-r from-red-200 to bg-red-400 shadow-lg hover:translate-y-[-2px] transition-transform cursor-pointer">
                   <svg className="h-6 w-6 mr-2" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink"
                     viewBox="0 0 73 73" version="1.1">
                     <g id="team-collaboration/version-control/github" stroke="none" strokeWidth="1" fill="none"

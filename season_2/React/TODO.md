@@ -1,0 +1,3 @@
+- [x] Update Component1.jsx to destructure count from counterContext
+- [ ] Update Navbar.jsx to use counterContext to get count and pass to Button
+- [ ] Run dev server to verify fixes

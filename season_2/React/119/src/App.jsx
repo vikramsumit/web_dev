@@ -1,4 +1,4 @@
-import { useForm } from "react-hook-form"
+fimport { useForm } from "react-hook-form"
 import { useState } from 'react'
 import './App.css'
 
@@ -22,13 +22,23 @@ function App() {
   }
 
   const onSubmit = async (data) => {
-    await delay(2) // simulating network delay
-    console.log(data)
-    if (data.username !== "raju" || data.password !== "raju") {
-      setError("myform", { type: "generic", message: "Username or password is incorrect" })
-    } else {
-      alert("You are logged in")
-    }
+    // await delay(2) // simulating network delay
+    let response = await fetch('http://localhost:3005/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    })
+
+    let res = await response.text()
+
+    console.log(data,res)
+    // if (data.username !== "raju" || data.password !== "raju") {
+    //   setError("myform", { type: "generic", message: "Username or password is incorrect" })
+    // } else {
+    //   alert("You are logged in")
+    // }
   }
 
   return (
