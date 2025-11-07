@@ -25,6 +25,15 @@ ul {
 li {
     margin: 10px 0;
 } */
+
+li {
+    width: calc(25.33% - 50px); 
+    margin: 10px 25px 0 25px;
+    padding: 10px;
+    background-color: #E6F0FA;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
 .container {
     max-width: 800px;
     margin: 0 auto;
