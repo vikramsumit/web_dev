@@ -1,0 +1,37 @@
+USE practical;
+
+CREATE TABLE Employee (
+    EMPLOYEE_ID INT,
+    LAST_NAME VARCHAR(50),
+    JOB_ID VARCHAR(20),
+    SALARY INT,
+    COMM_PCT DECIMAL(4,2)
+);
+
+INSERT INTO Employee (EMPLOYEE_ID, LAST_NAME, JOB_ID, SALARY, COMM_PCT) VALUES
+(198, 'Connell', 'SH_CLERK', 2600, 2.5),
+(199, 'Grant', 'SH_CLERK', 2600, 2.2),
+(200, 'Whalen', 'AD_ASST', 4400, 1.3),
+(201, 'Hartstein', 'IT_PROG', 6000, NULL),
+(202, 'Fay', 'AC_MGR', 6000, NULL),
+(203, 'Mavris', 'AD_VP', 7500, NULL),
+(204, 'Baer', 'AD_PRES', 3500, 1.5),
+(205, 'Higgins', 'AC_MGR', 2000, NULL),
+(206, 'Gitz', 'IT_PROG', 5000, NULL),
+(100, 'King', 'AD_ASST', 8956, 0.3),
+(101, 'Kochar', 'SH_CLERK', 3400, 1.3);
+
+SELECT * FROM Employee;
+
+SELECT 
+    LAST_NAME,
+    SALARY,
+    (SALARY * 12 + 100) AS Annual_Compensation
+FROM Employee;
+
+SELECT LAST_NAME, SALARY
+FROM Employee
+WHERE SALARY BETWEEN 4000 AND 7000;
+
+SELECT * FROM Employee
+WHERE COMM_PCT IS NULL;
