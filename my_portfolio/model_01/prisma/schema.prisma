@@ -1,0 +1,99 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model User {
+  id           String        @id @default(cuid())
+  email        String        @unique
+  name         String
+  headline     String?
+  bio          String?
+  location     String?
+  avatarUrl    String?
+  websiteUrl   String?
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+  projects     Project[]
+  certificates Certificate[]
+  educations   Education[]
+}
+
+model Project {
+  id          String      @id @default(cuid())
+  userId      String
+  slug        String      @unique
+  title       String
+  summary     String
+  caseStudy   String      @db.Text
+  techStack   String[]    @default([])
+  imageUrl    String?
+  demoUrl     String?
+  repoUrl     String?
+  featured    Boolean     @default(false)
+  order       Int         @default(0)
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+  user        User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  skills      Skill[]
+
+  @@index([userId, featured])
+  @@index([userId, order])
+}
+
+model Certificate {
+  id              String     @id @default(cuid())
+  userId          String
+  educationId     String?
+  title           String
+  issuer          String
+  imageUrl        String?
+  issueDate       DateTime?
+  expirationDate  DateTime?
+  credentialId   String?
+  verificationUrl String
+  order           Int        @default(0)
+  createdAt       DateTime   @default(now())
+  updatedAt       DateTime   @updatedAt
+  user            User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  education       Education? @relation(fields: [educationId], references: [id], onDelete: SetNull)
+
+  @@index([userId, order])
+  @@index([educationId])
+}
+
+model Education {
+  id           String        @id @default(cuid())
+  userId       String
+  institution  String
+  degree       String
+  fieldOfStudy String?
+  description  String?       @db.Text
+  startDate    DateTime?
+  endDate      DateTime?
+  grade        String?
+  order        Int           @default(0)
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+  user         User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  skills       Skill[]
+  certificates Certificate[]
+
+  @@index([userId, order])
+}
+
+model Skill {
+  id          String      @id @default(cuid())
+  slug        String      @unique
+  name        String      @unique
+  category    String?
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+  projects    Project[]
+  educations  Education[]
+}

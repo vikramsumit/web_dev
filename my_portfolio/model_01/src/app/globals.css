@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+/* ─── Neo-Classical: Parchment Palette ───────────────────────────────────── */
+:root {
+  --parchment: #f8f0e0;
+  --bg: #f8f0e0;
+  --ink: #2a1a0a;
+  --accent: #854c1d;
+}
+
+/* ─── Editorial Text Frame (CSS Grid) ────────────────────────────────────── */
+/* Generous margins: narrow gutters on small screens, fluid margins on large */
+.text-frame {
+  display: grid;
+  grid-template-columns: minmax(1.5rem, 1fr) minmax(0, 65ch) minmax(1.5rem, 1fr);
+  gap: 0;
+}
+
+.text-frame > * {
+  grid-column: 2;
+}
+
+/* ─── Typographic Hierarchy ─────────────────────────────────────────────── */
+/* Emphasis via italics and letter-spaced small caps, not bold */
+.emphasis-small-caps {
+  font-variant: small-caps;
+  font-style: italic;
+  letter-spacing: 0.16em;
+}
+
+/* ─── Base Styles ──────────────────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--parchment);
+  color: var(--ink);
+  font-family: var(--font-body), Georgia, serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Paper texture: subtle SVG noise overlay */
+.paper-texture {
+  position: relative;
+}
+
+.paper-texture::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: var(--parchment);
+  filter: url(#paper-noise);
+  opacity: 0.4;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Animation: will-change for performance (only on interactive elements) */
+[data-reveal],
+[data-card],
+[data-ink-bleed] {
+  will-change: transform;
+}
+
+[data-reveal],
+[data-card] {
+  will-change: transform, opacity;
+}
