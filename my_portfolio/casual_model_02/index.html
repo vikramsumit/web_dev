@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vikram Sumit — Full-Stack Developer</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;600;700&family=Syne:wght@400;600;700;800&display=swap"
+        rel="stylesheet" />
+    <script>
+        try {
+            if (localStorage.getItem('portfolio-theme') === 'dark') {
+                document.documentElement.classList.add('dark-theme');
+            }
+        } catch (e) { }
+    </script>
+    <link href="./style.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+
+    <!-- NAV -->
+    <nav>
+        <div class="inner">
+            <div class="nav-logo">V<span>.sumit</span></div>
+            <div class="nav-links">
+                <a href="#skills">Skills</a>
+                <a href="#focus">Focus</a>
+                <a href="#stats">Stats</a>
+                <a href="#connect">Connect</a>
+                <button type="button" class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"
+                    aria-pressed="false">Dark</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <div class="hero">
+        <div class="hero-orb orb1"></div>
+        <div class="hero-orb orb2"></div>
+        <div class="hero-orb orb3"></div>
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="badge-dot"></span>
+                Available for collaboration
+            </div>
+            <h1>
+                Hey, I'm<br />
+                <span class="name-accent glitch" data-text="Vikram Sumit">Vikram Sumit</span>
+            </h1>
+            <p class="hero-subtitle">
+                <span class="tag">Full-Stack Developer</span> &nbsp;·&nbsp; Data Science Learner &nbsp;·&nbsp; India
+                🇮🇳
+            </p>
+            <p class="typewriter" id="typewriter"><span class="type-cursor"></span></p>
+            <div class="hero-cta">
+                <a href="https://github.com/vikramsumit" class="btn btn-primary" target="_blank">⬡ GitHub Profile</a>
+                <a href="mailto:vikramsumit@outlook.com" class="btn btn-outline">✉ vikramsumit@outlook.com</a>
+            </div>
+
+            <div class="terminal-box">
+                <div class="terminal-bar">
+                    <span class="terminal-dot td1"></span>
+                    <span class="terminal-dot td2"></span>
+                    <span class="terminal-dot td3"></span>
+                    <span class="terminal-title">vikram@dev ~ terminal</span>
+                </div>
+                <div class="terminal-body">
+                    <div><span class="t-prompt">vikram@dev</span><span class="t-cmd"> ~$ whoami</span></div>
+                    <div class="t-output">Full-Stack Developer &amp; Data Science Enthusiast</div>
+                    <div style="margin-top:8px"><span class="t-prompt">vikram@dev</span><span class="t-cmd"> ~$ cat
+                            skills.json | grep "primary"</span></div>
+                    <div class="t-output"><span class="t-key">"stack"</span>: <span class="t-val">"MERN + Next.js +
+                            TypeScript"</span></div>
+                    <div class="t-output"><span class="t-key">"data"</span>: <span class="t-val">"Python · ML ·
+                            Scikit-learn · PyTorch"</span></div>
+                    <div class="t-output"><span class="t-key">"deploy"</span>: <span class="t-val">"Linux · Git ·
+                            GitHub"</span></div>
+                    <div style="margin-top:8px"><span class="t-prompt">vikram@dev</span><span class="t-cmd"> ~$ echo
+                            "Building cool things..."</span></div>
+                    <div class="t-output" style="color: var(--accent3)">Building cool things... ✓</div>
+                    <div style="margin-top:8px"><span class="t-prompt">vikram@dev</span><span class="t-cmd"> ~$ <span
+                                class="type-cursor"></span></span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SKILLS SECTION -->
+    <section id="skills">
+        <div class="container">
+            <div class="section-label">01 &mdash; Technical Skills</div>
+            <h2 class="section-title">What I <span style="color:var(--accent)">Build With</span></h2>
+
+            <div class="skills-grid">
+
+                <!-- Web Frontend -->
+                <div class="skill-card reveal reveal-d1">
+                    <div class="skill-card-header">
+                        <span class="skill-icon">🌐</span>
+                        <div>
+                            <div class="skill-card-title">Frontend</div>
+                            <div class="skill-card-sub">Web interfaces & UI</div>
+                        </div>
+                    </div>
+                    <div class="tags">
+                        <span class="tag tag-yellow">HTML5</span>
+                        <span class="tag tag-blue">CSS3</span>
+                        <span class="tag tag-yellow">JavaScript</span>
+                        <span class="tag tag-blue">TypeScript</span>
+                        <span class="tag tag-blue">React.js</span>
+                        <span class="tag tag-blue">Vite</span>
+                        <span class="tag tag-purple">Next.js</span>
+                        <span class="tag tag-blue">Tailwind CSS</span>
+                        <span class="tag tag-purple">Bootstrap</span>
+                    </div>
+                    <div class="skill-bar-wrap" id="bars-frontend">
+                        <div class="skill-bar-item"><span class="skill-bar-label">React/Next</span>
+                            <div class="skill-bar-track">
+                                <div class="skill-bar-fill fill-cyan" data-width="88"></div>
+                            </div>
+                        </div>
+                        <div class="skill-bar-item"><span class="skill-bar-label">JS/TS</span>
+                            <div class="skill-bar-track">
+                                <div class="skill-bar-fill fill-cyan" data-width="82"></div>
+                            </div>
+                        </div>
+                        <div class="skill-bar-item"><span class="skill-bar-label">Tailwind</span>
+                            <div class="skill-bar-track">
+                                <div class="skill-bar-fill fill-cyan" data-width="90"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Backend -->
+                <div class="skill-card reveal reveal-d2">
+                    <div class="skill-card-header">
+                        <span class="skill-icon">⚙️</span>
+                        <div>
+                            <div class="skill-card-title">Backend</div>
+                            <div class="skill-card-sub">APIs & server-side</div>
+                        </div>
+                    </div>
+                    <div class="tags">
+                        <span class="tag tag-green">Node.js</span>
+                        <span class="tag tag-dim">Express.js</span>
+                        <span class="tag tag-yellow">Python</span>
+                        <span class="tag tag-green">Flask</span>
+                        <span class="tag tag-dim">REST API</span>
+                    </div>
+                    <div class="skill-bar-wrap">
+                        <div class="skill-bar-item"><span class="skill-bar-label">Node/Express</span>
+                            <div class="skill-bar-track">
+                                <div class="skill-bar-fill fill-green" data-width="85"></div>
+                            </div>
+                        </div>
+                        <div class="skill-bar-item"><span class="skill-bar-label">Python/Flask</span>
+                            <div class="skill-bar-track">
+                                <div class="skill-bar-fill fill-green" data-width="75"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Databases -->
+                <div class="skill-card reveal reveal-d3">
+                    <div class="skill-card-header">
+                        <span class="skill-icon">🗄️</span>
+                        <div>
+                            <div class="skill-card-title">Databases</div>
+                            <div class="skill-card-sub">Storage & queries</div>
+                        </div>
+                    </div>
+                    <div class="tags">
+                        <span class="tag tag-green">MongoDB</span>
+                        <span class="tag tag-blue">PostgreSQL</span>
+                        <span class="tag tag-yellow">SQL</span>
+                    </div>
+                    <div class="skill-bar-wrap">
+                        <div class="skill-bar-item"><span class="skill-bar-label">MongoDB</span>
+                            <div class="skill-bar-track">
+                                <div class="skill-bar-fill fill-green" data-width="86"></div>
+                            </div>
+                        </div>
+                        <div class="skill-bar-item"><span class="skill-bar-label">SQL/Postgres</span>
+                            <div class="skill-bar-track">
+                                <div class="skill-bar-fill fill-yellow" data-width="72"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Languages -->
+                <div class="skill-card reveal reveal-d4">
+                    <div class="skill-card-header">
+                        <span class="skill-icon">💻</span>
+                        <div>
+                            <div class="skill-card-title">Languages</div>
+                            <div class="skill-card-sub">Core programming</div>
+                        </div>
+                    </div>
+                    <div class="tags">
+                        <span class="tag tag-blue">C</span>
+                        <span class="tag tag-purple">C++ (basics)</span>
+                        <span class="tag tag-yellow">Java</span>
+                        <span class="tag tag-blue">Python</span>
+                        <span class="tag tag-yellow">JavaScript</span>
+                    </div>
+                    <div class="skill-bar-wrap">
+                        <div class="skill-bar-item"><span class="skill-bar-label">Python</span>
+                            <div class="skill-bar-track">
+                                <div class="skill-bar-fill fill-yellow" data-width="80"></div>
+                            </div>
+                        </div>
+                        <div class="skill-bar-item"><span class="skill-bar-label">Java</span>
+                            <div class="skill-bar-track">
+                                <div class="skill-bar-fill fill-yellow" data-width="70"></div>
+                            </div>
+                        </div>
+                        <div class="skill-bar-item"><span class="skill-bar-label">C / C++</span>
+                            <div class="skill-bar-track">
+                                <div class="skill-bar-fill fill-yellow" data-width="65"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Data Science -->
+                <div class="skill-card reveal reveal-d5">
+                    <div class="skill-card-header">
+                        <span class="skill-icon">📊</span>
+                        <div>
+                            <div class="skill-card-title">Data Science</div>
+                            <div class="skill-card-sub">ML & analytics</div>
+                        </div>
+                    </div>
+                    <div class="tags">
+                        <span class="tag tag-yellow">NumPy</span>
+                        <span class="tag tag-blue">Pandas</span>
+                        <span class="tag tag-green">Matplotlib</span>
+                        <span class="tag tag-pink">Seaborn</span>
+                        <span class="tag tag-purple">Scikit-learn</span>
+                        <span class="tag tag-red">PyTorch</span>
+                        <span class="tag tag-dim">Web Scraping</span>
+                        <span class="tag tag-blue">Statistics</span>
+                        <span class="tag tag-dim">ML Algorithms</span>
+                    </div>
+                </div>
+
+                <!-- Tools & Design -->
+                <div class="skill-card reveal reveal-d6">
+                    <div class="skill-card-header">
+                        <span class="skill-icon">🛠️</span>
+                        <div>
+                            <div class="skill-card-title">Tools & Design</div>
+                            <div class="skill-card-sub">Dev environment</div>
+                        </div>
+                    </div>
+                    <div class="tags">
+                        <span class="tag tag-dim">Linux</span>
+                        <span class="tag tag-dim">Git</span>
+                        <span class="tag tag-dim">GitHub</span>
+                        <span class="tag tag-blue">VS Code</span>
+                        <span class="tag tag-yellow">Jupyter Lab</span>
+                        <span class="tag tag-green">Google Colab</span>
+                        <span class="tag tag-purple">Figma (basics)</span>
+                        <span class="tag tag-dim">Canva</span>
+                        <span class="tag tag-dim">MS Office</span>
+                    </div>
+                    <div class="sec-badge">🔒 Good understanding of Cybersecurity</div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CURRENT FOCUS -->
+    <section id="focus">
+        <div class="container">
+            <div class="section-label">02 &mdash; Current Focus</div>
+            <h2 class="section-title">What I'm <span style="color:var(--accent2)">Learning Now</span></h2>
+
+            <div class="focus-grid">
+                <div class="focus-card reveal reveal-d1">
+                    <div class="focus-card-num">01</div>
+                    <div class="focus-card-icon">⚡</div>
+                    <div class="focus-card-title">Advanced Next.js + TypeScript</div>
+                    <div class="focus-card-desc">Deep diving into server components, streaming, and modern Next.js 14+
+                        patterns for production apps.</div>
+                </div>
+                <div class="focus-card reveal reveal-d2">
+                    <div class="focus-card-num">02</div>
+                    <div class="focus-card-icon">🧠</div>
+                    <div class="focus-card-title">Machine Learning</div>
+                    <div class="focus-card-desc">Hands-on with Scikit-learn and starting PyTorch for deep learning.
+                        Building real-world ML projects.</div>
+                </div>
+                <div class="focus-card reveal reveal-d3">
+                    <div class="focus-card-num">03</div>
+                    <div class="focus-card-icon">🏗️</div>
+                    <div class="focus-card-title">Backend Architecture</div>
+                    <div class="focus-card-desc">Better backend design with Prisma, SQL databases, system design and
+                        scalable project structure.</div>
+                </div>
+                <div class="focus-card reveal reveal-d4">
+                    <div class="focus-card-num">04</div>
+                    <div class="focus-card-icon">🚀</div>
+                    <div class="focus-card-title">Full Deployment Pipeline</div>
+                    <div class="focus-card-desc">Deploying apps with React.js + Git + GitHub. Linux server setup and
+                        CI/CD workflows.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GITHUB STATS -->
+    <section id="stats">
+        <div class="container">
+            <div class="section-label">03 &mdash; GitHub Activity</div>
+            <h2 class="section-title">By the <span style="color:var(--accent3)">Numbers</span></h2>
+
+            <div class="stats-row">
+                <div class="stat-card reveal reveal-d1">
+                    <span class="stat-num" id="cnt1">0</span>
+                    <div class="stat-label">TECHNOLOGIES LEARNED</div>
+                </div>
+                <div class="stat-card reveal reveal-d2">
+                    <span class="stat-num" id="cnt2">0</span>
+                    <div class="stat-label">SKILL CATEGORIES</div>
+                </div>
+                <div class="stat-card reveal reveal-d3">
+                    <span class="stat-num" id="cnt3">0+</span>
+                    <div class="stat-label">PROJECTS ON GITHUB</div>
+                </div>
+            </div>
+
+            <div class="gh-stats reveal">
+                <img id="ghStatsCard"
+                    src="https://github-readme-stats.vercel.app/api?username=vikramsumit&show_icons=true&theme=default&hide_border=true&bg_color=ffffff&title_color=1f4e8c&text_color=101828&icon_color=8c3f2a"
+                    data-light-src="https://github-readme-stats.vercel.app/api?username=vikramsumit&show_icons=true&theme=default&hide_border=true&bg_color=ffffff&title_color=1f4e8c&text_color=101828&icon_color=8c3f2a"
+                    data-dark-src="https://github-readme-stats.vercel.app/api?username=vikramsumit&show_icons=true&theme=tokyonight&hide_border=true&bg_color=111a2d&title_color=8ab4ff&text_color=e8eefc&icon_color=f2a876"
+                    alt="Vikram's GitHub Stats" />
+                <img id="ghLangsCard"
+                    src="https://github-readme-stats.vercel.app/api/top-langs/?username=vikramsumit&layout=compact&theme=default&hide_border=true&bg_color=ffffff&title_color=1f4e8c&text_color=101828"
+                    data-light-src="https://github-readme-stats.vercel.app/api/top-langs/?username=vikramsumit&layout=compact&theme=default&hide_border=true&bg_color=ffffff&title_color=1f4e8c&text_color=101828"
+                    data-dark-src="https://github-readme-stats.vercel.app/api/top-langs/?username=vikramsumit&layout=compact&theme=tokyonight&hide_border=true&bg_color=111a2d&title_color=8ab4ff&text_color=e8eefc"
+                    alt="Top Languages" />
+            </div>
+            <div style="margin-top:16px" class="reveal">
+                <img id="ghStreakCard"
+                    src="https://streak-stats.demolab.com?user=vikramsumit&theme=default&hide_border=true&background=ffffff&ring=1f4e8c&fire=8c3f2a&currStreakLabel=1f4e8c"
+                    data-light-src="https://streak-stats.demolab.com?user=vikramsumit&theme=default&hide_border=true&background=ffffff&ring=1f4e8c&fire=8c3f2a&currStreakLabel=1f4e8c"
+                    data-dark-src="https://streak-stats.demolab.com?user=vikramsumit&theme=tokyonight&hide_border=true&background=111a2d&ring=8ab4ff&fire=f2a876&currStreakLabel=8ab4ff"
+                    alt="GitHub Streak" style="width:100%;border-radius:8px;" />
+            </div>
+        </div>
+    </section>
+
+    <!-- CONNECT -->
+    <section id="connect">
+        <div class="container connect-section">
+            <div class="section-label" style="justify-content:center; text-align:center">04 &mdash; Let's Connect</div>
+            <h2 class="section-title reveal">Got a project in mind? <br /><span style="color:var(--accent)">Let's build
+                    it together.</span></h2>
+            <p class="reveal"
+                style="color:var(--muted); font-size:0.85rem; max-width:500px; margin:0 auto; line-height:1.8">
+                I'm always open to interesting projects, collaborations, and learning opportunities. Drop a message!
+            </p>
+            <div class="connect-links">
+                <a href="mailto:vikramsumit@outlook.com" class="connect-card reveal reveal-d1">
+                    ✉ vikramsumit@outlook.com
+                </a>
+                <a href="https://github.com/vikramsumit" class="connect-card reveal reveal-d2" target="_blank">
+                    ⬡ github.com/vikramsumit
+                </a>
+                <a href="https://github.com/vikramsumit/web_dev" class="connect-card reveal reveal-d3" target="_blank">
+                    📁 web_dev portfolio
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            Built with <span>♥</span> by Vikram Sumit &nbsp;·&nbsp; Full-Stack Developer &nbsp;·&nbsp; India
+        </div>
+    </footer>
+
+    <script src="./script.js"></script>
+</body>
+
+</html>
