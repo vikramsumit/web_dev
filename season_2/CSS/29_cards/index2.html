@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Image Switch Card with Read More</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #e0e0e0;
+      font-family: Arial, sans-serif;
+    }
+    .box {
+      width: 300px;
+      background-color: #fff;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      transition: all 0.3s ease;
+      padding: 16px;
+      text-align: center;
+    }
+    .box:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+    }
+    .main-img {
+      width: 98%;
+      height: auto;
+      border-radius: 20px;
+      border: 2px solid #ccc;
+      transition: all 0.3s ease;
+    }
+    .main-img:hover {
+      transform: scale(1.1);
+      filter: brightness(0.85);
+      border-color: #7db5f1;
+    }
+    h1 {
+      font-size: 1.25rem;
+      margin: 12px 0;
+    }
+    p {
+      font-size: 0.9rem;
+      margin-bottom: 12px;
+    }
+    .more-content {
+        /* justify-content: justify; */
+        text-align: justify;
+      display: none;
+      font-size: 0.9rem;
+      color: #333;
+    }
+    .btn-group {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: center;
+      
+      margin-bottom: 12px;
+    }
+    button {
+      flex: 1 1 45%;
+      padding: 8px;
+      border: none;
+      border-radius: 16px;
+      background-color: bisque;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #e6c0a6;
+    }
+
+    .read-more-btn {
+      margin-top: 8px;
+      width: 100%;
+      font-size: 0.9rem;
+      background-color: #d8eaf8;
+    }
+    .read-more-btn:hover {
+      background-color: #bcdaf0;
+    }
+
+    @media (min-width: 1600px) {
+      .box {
+        width: 500px;
+        padding: 24px;
+      }
+      h1 {
+        font-size: 1.75rem;
+      }
+      p, .more-content {
+        font-size: 1rem;
+      }
+      button {
+        padding: 12px;
+        font-size: 1rem;
+      }
+    }
+
+    @media (max-width: 500px) and (orientation: portrait) {
+      body {
+        align-items: flex-start;
+        padding-top: 20px;
+      }
+      .box {
+        width: 90%;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.1rem;
+      }
+      p, .more-content {
+        font-size: 0.85rem;
+      }
+      .btn-group {
+        flex-direction: column;
+      }
+      button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <img id="mainImage" class="main-img" src="lake.jpeg" alt="Main Image" />
+    <div class="btn-group">
+      <button onclick="changeImage('nature.jpeg')">Nature</button>
+      <button onclick="changeImage('lake.jpeg')">Lake</button>
+    </div>
+    <h1>Lorem ipsum sit.</h1>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate aut esse eumlorem5 tolotam lore
+    </p>
+    
+    <!-- Hidden content -->
+    <div id="moreContent" class="more-content">
+      Quidem nemo accusantium veritatis dolorem temporibus non fuga, voluptatem mollitia vel natus? Vel veniam ab autem, consequatur molestiae doloremque deleniti deserunt, voluptate provident odio suscipit dolore saepe, ullam vero. Debitis nisi molestiae quos!
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Earum mollitia rem eius non, quisquam doloremque quia cum dicta assumenda maiores aliquid sint laboriosam aspernatur praesentium vitae repellendus facilis deserunt quod.
+    </div>
+
+    <!-- Read More button -->
+    <button class="read-more-btn" onclick="toggleReadMore()">Read more</button>
+  </div>
+
+  <script>
+    function changeImage(imageSrc) {
+      document.getElementById("mainImage").src = imageSrc;
+    }
+
+    function toggleReadMore() {
+      const content = document.getElementById("moreContent");
+      const btn = document.querySelector(".read-more-btn");
+
+      if (content.style.display === "none" || content.style.display === "") {
+        content.style.display = "block";
+        btn.textContent = "Read less";
+      } else {
+        content.style.display = "none";
+        btn.textContent = "Read more";
+      }
+    }
+  </script>
+</body>
+</html>
