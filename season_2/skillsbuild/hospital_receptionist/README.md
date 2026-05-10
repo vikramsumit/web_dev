@@ -1,3 +1,5 @@
+# Visit the Colab Notebook for Collaboration: [Open in Google Colab](https://colab.research.google.com/drive/1fAK-EFdHKCZv6MOEDOStFnAfSDwyxEje?usp=sharing)
+
 # Hospital Triage Assistant
 
 A small full-stack hospital intake app built with:
