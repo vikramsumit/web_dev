@@ -17,8 +17,9 @@ const merriweather = Merriweather({
 });
 
 export const metadata: Metadata = {
-  title: "Neo-Classical Portfolio",
-  description: "A classical editorial portfolio built with Next.js",
+  title: "Sumit Vikram | AI/ML & Full-Stack Portfolio",
+  description:
+    "Portfolio of Sumit Vikram, a B.Tech IT student focused on Data Science, AI/ML, and Full-Stack Development.",
 };
 
 export default function RootLayout({

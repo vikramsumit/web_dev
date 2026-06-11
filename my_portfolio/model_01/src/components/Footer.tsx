@@ -8,8 +8,8 @@ type FooterProps = {
 
 export default function Footer({ profile }: FooterProps) {
   const year = new Date().getFullYear();
-  const name = profile?.name ?? "Your Name";
-  const location = profile?.location ?? "Remote";
+  const name = profile?.name ?? "Sumit Vikram";
+  const location = profile?.location ?? "India";
   const website = profile?.websiteUrl ?? null;
 
   return (
@@ -35,8 +35,14 @@ export default function Footer({ profile }: FooterProps) {
             <Link href="#works" className="emphasis-small-caps text-[0.62rem] text-[var(--accent)]">
               Works
             </Link>
+            <Link href="#experience" className="emphasis-small-caps text-[0.62rem] text-[var(--accent)]">
+              Experience
+            </Link>
             <Link href="#education" className="emphasis-small-caps text-[0.62rem] text-[var(--accent)]">
               Education
+            </Link>
+            <Link href="#contact" className="emphasis-small-caps text-[0.62rem] text-[var(--accent)]">
+              Contact
             </Link>
             {website ? (
               <a
@@ -45,7 +51,7 @@ export default function Footer({ profile }: FooterProps) {
                 rel="noreferrer noopener"
                 className="emphasis-small-caps text-[0.62rem] text-[var(--accent)]"
               >
-                Website
+                GitHub
               </a>
             ) : null}
           </div>

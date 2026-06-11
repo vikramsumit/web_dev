@@ -1,4 +1,5 @@
 import type { PortfolioProfile } from "@/lib/portfolio-data";
+import { heroCtas, profileLinks } from "@/lib/site-content";
 
 type HeroProps = {
   profile: PortfolioProfile | null;
@@ -9,11 +10,13 @@ type HeroProps = {
  * Layout: CSS Grid text frame with generous margins (mobile-first)
  */
 export default function Hero({ profile }: HeroProps) {
-  const name = profile?.name ?? "Your Name";
-  const headline = profile?.headline ?? "Designer · Developer · Thinker";
+  const name = profile?.name ?? "Sumit Vikram";
+  const headline =
+    profile?.headline ??
+    "B.Tech IT Student | Data Science & AI/ML | Full Stack Development";
   const bio =
     profile?.bio ??
-    "A brief, editorial statement about your craft and approach—measured, deliberate, and rooted in classical principles.";
+    "Building intelligent systems, practical web apps, and strong foundations in computer science.";
 
   return (
     <section
@@ -63,6 +66,40 @@ export default function Hero({ profile }: HeroProps) {
         >
           {headline}
         </p>
+
+        {/* <p className="emphasis-small-caps mt-3 text-[0.66rem] text-(--accent)">
+          B.Tech IT | WBUT | Open to Internship - July 2026
+        </p> */}
+
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+          {heroCtas.map((cta) => (
+            <a
+              key={cta.href}
+              href={cta.href}
+              className={`emphasis-small-caps rounded-sm border px-4 py-2 text-[0.64rem] transition ${
+                cta.primary
+                  ? "border-(--accent) bg-(--accent) text-(--parchment)"
+                  : "border-[color-mix(in_srgb,var(--ink)_24%,transparent)] text-(--accent) hover:border-(--accent)"
+              }`}
+            >
+              {cta.label}
+            </a>
+          ))}
+        </div>
+
+        <div className="mt-6 flex flex-wrap items-center justify-center gap-4">
+          {profileLinks.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              target={link.href.startsWith("http") ? "_blank" : undefined}
+              rel={link.href.startsWith("http") ? "noreferrer noopener" : undefined}
+              className="emphasis-small-caps text-[0.62rem] text-(--accent) underline-offset-4 hover:underline"
+            >
+              {link.label}
+            </a>
+          ))}
+        </div>
       </article>
     </section>
   );

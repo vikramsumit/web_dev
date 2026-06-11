@@ -10,9 +10,13 @@ type NavbarProps = {
 };
 
 const navItems = [
+  { href: "#about", label: "About" },
+  { href: "#skills", label: "Skills" },
   { href: "#works", label: "Works" },
+  { href: "#experience", label: "Experience" },
   { href: "#education", label: "Education" },
   { href: "#certificates", label: "Certificates" },
+  { href: "#contact", label: "Contact" },
 ];
 
 export default function Navbar({ profile }: NavbarProps) {
@@ -41,7 +45,7 @@ export default function Navbar({ profile }: NavbarProps) {
             Menu
           </button>
 
-          <nav className="hidden items-center gap-5 md:flex" aria-label="Primary">
+          <nav className="hidden items-center gap-4 md:flex" aria-label="Primary">
             {navItems.map((item) => (
               <Link
                 key={item.href}
@@ -58,7 +62,7 @@ export default function Navbar({ profile }: NavbarProps) {
       {open ? (
         <nav id="mobile-nav" className="border-t border-[color-mix(in_srgb,var(--ink)_16%,transparent)] md:hidden" aria-label="Mobile">
           <div className="grid grid-cols-[0.75rem_minmax(0,1fr)_0.75rem] py-3">
-            <ul className="col-start-2 flex items-center justify-between gap-3">
+            <ul className="col-start-2 flex flex-wrap items-center justify-center gap-3">
               {navItems.map((item) => (
                 <li key={item.href}>
                   <Link

@@ -3,7 +3,7 @@ import Navbar from "@/components/Navbar";
 import PortfolioExperience from "@/components/PortfolioExperience";
 import { getPortfolioData } from "@/lib/portfolio-data";
 
-const PROFILE_EMAIL = process.env.PORTFOLIO_PROFILE_EMAIL ?? "portfolio@example.com";
+const PROFILE_EMAIL = process.env.PORTFOLIO_PROFILE_EMAIL ?? "sumit.vikram@example.com";
 
 export default async function Home() {
   const { profile, projects, certificates, educations } = await getPortfolioData(PROFILE_EMAIL);

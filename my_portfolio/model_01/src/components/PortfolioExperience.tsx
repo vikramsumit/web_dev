@@ -2,9 +2,9 @@
 
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Image from "next/image";
 import { useEffect, useRef } from "react";
 
+import CertificatesSection from "@/components/CertificatesSection";
 import EducationTimeline from "@/components/EducationTimeline";
 import Hero from "@/components/Hero";
 import InkBleedDivider from "@/components/InkBleedDivider";
@@ -15,12 +15,15 @@ import type {
   PortfolioProfile,
   PortfolioProject,
 } from "@/lib/portfolio-data";
+import {
+  aboutCopy,
+  achievements,
+  experienceItems,
+  profileLinks,
+  skillGroups,
+} from "@/lib/site-content";
 
 gsap.registerPlugin(ScrollTrigger);
-
-function certificateImageSrc(certificateId: string) {
-  return `https://picsum.photos/seed/certificate-${certificateId}/840/560`;
-}
 
 type PortfolioExperienceProps = {
   profile: PortfolioProfile | null;
@@ -111,6 +114,80 @@ export default function PortfolioExperience({
     >
       <Hero profile={profile} />
 
+      {/* About */}
+      <section id="about" className="grid grid-cols-[0.75rem_minmax(0,1fr)_0.75rem] pb-24 sm:grid-cols-[1rem_minmax(0,1fr)_1rem] sm:pb-28 md:grid-cols-[minmax(1.5rem,1fr)_minmax(0,65ch)_minmax(1.5rem,1fr)] md:pb-32">
+        <InkBleedDivider />
+
+        <article
+          data-reveal
+          className="col-start-2 border-y border-[color-mix(in_srgb,var(--ink)_22%,transparent)] py-10 text-center sm:py-12 will-change-[transform,opacity]"
+        >
+          <p className="emphasis-small-caps text-[0.76rem] italic tracking-[0.16em] text-(--accent)">
+            About
+          </p>
+          <h2
+            className="mt-3 text-[clamp(1.4rem,4vw,2.4rem)] leading-[1.2]"
+            style={{ fontFamily: "var(--font-display), 'Times New Roman', serif" }}
+          >
+            AI/ML, Data Science, and Full-Stack Craft
+          </h2>
+          <div className="mx-auto mt-6 grid max-w-[58ch] gap-4 text-left sm:text-center">
+            {aboutCopy.map((paragraph) => (
+              <p key={paragraph} className="italic leading-[1.9]">
+                {paragraph}
+              </p>
+            ))}
+          </div>
+        </article>
+      </section>
+
+      {/* Skills */}
+      <section id="skills" className="grid grid-cols-[0.75rem_minmax(0,1fr)_0.75rem] pb-24 sm:grid-cols-[1rem_minmax(0,1fr)_1rem] sm:pb-28 md:grid-cols-[minmax(1.5rem,1fr)_minmax(0,65ch)_minmax(1.5rem,1fr)] md:pb-32">
+        <InkBleedDivider />
+
+        <header
+          data-reveal
+          className="col-start-2 mb-6 text-center sm:mb-8 will-change-[transform,opacity]"
+        >
+          <p className="emphasis-small-caps text-[0.76rem] italic tracking-[0.16em] text-(--accent)">
+            Skills
+          </p>
+          <h2
+            className="mt-3 text-[clamp(1.4rem,4vw,2.4rem)] leading-[1.2]"
+            style={{ fontFamily: "var(--font-display), 'Times New Roman', serif" }}
+          >
+            Technical Foundations
+          </h2>
+        </header>
+
+        <div data-card-group className="col-start-2 grid gap-4 sm:grid-cols-2">
+          {skillGroups.map((group) => (
+            <article
+              key={group.title}
+              data-card
+              className="rounded-sm border border-[color-mix(in_srgb,var(--ink)_18%,transparent)] bg-[color-mix(in_srgb,var(--parchment)_96%,white)] p-4 will-change-[transform,opacity] sm:p-5"
+            >
+              <h3
+                className="text-[1.1rem]"
+                style={{ fontFamily: "var(--font-display), 'Times New Roman', serif" }}
+              >
+                {group.title}
+              </h3>
+              <div className="mt-4 flex flex-wrap gap-2">
+                {group.items.map((item) => (
+                  <span
+                    key={item}
+                    className="rounded-sm border border-[color-mix(in_srgb,var(--ink)_16%,transparent)] px-2 py-1 text-[0.72rem] italic"
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
       {/* Mobile-first text frame: tight on small, generous on large */}
       <section id="works" className="grid grid-cols-[0.75rem_minmax(0,1fr)_0.75rem] pb-24 sm:grid-cols-[1rem_minmax(0,1fr)_1rem] sm:pb-28 md:grid-cols-[minmax(1.5rem,1fr)_minmax(0,65ch)_minmax(1.5rem,1fr)] md:pb-32">
         <InkBleedDivider />
@@ -157,6 +234,56 @@ export default function PortfolioExperience({
         </div>
       </section>
 
+      {/* Experience */}
+      <section id="experience" className="grid grid-cols-[0.75rem_minmax(0,1fr)_0.75rem] pb-24 sm:grid-cols-[1rem_minmax(0,1fr)_1rem] sm:pb-28 md:grid-cols-[minmax(1.5rem,1fr)_minmax(0,65ch)_minmax(1.5rem,1fr)] md:pb-32">
+        <InkBleedDivider />
+
+        <header
+          data-reveal
+          className="col-start-2 mb-6 text-center sm:mb-8 will-change-[transform,opacity]"
+        >
+          <p className="emphasis-small-caps text-[0.76rem] italic tracking-[0.16em] text-(--accent)">
+            Experience
+          </p>
+          <h2
+            className="mt-3 text-[clamp(1.4rem,4vw,2.4rem)] leading-[1.2]"
+            style={{ fontFamily: "var(--font-display), 'Times New Roman', serif" }}
+          >
+            Internship Highlights
+          </h2>
+        </header>
+
+        <div data-card-group className="col-start-2 grid gap-5">
+          {experienceItems.map((item) => (
+            <article
+              key={`${item.company}-${item.period}`}
+              data-card
+              className="rounded-sm border border-[color-mix(in_srgb,var(--ink)_18%,transparent)] bg-[color-mix(in_srgb,var(--parchment)_96%,white)] p-4 will-change-[transform,opacity] sm:p-6"
+            >
+              <p className="emphasis-small-caps text-[0.68rem] italic tracking-[0.15em] text-(--accent)">
+                {item.period}
+              </p>
+              <h3
+                className="mt-2 text-[clamp(1.15rem,2.4vw,1.7rem)] leading-[1.2]"
+                style={{ fontFamily: "var(--font-display), 'Times New Roman', serif" }}
+              >
+                {item.role}
+              </h3>
+              <p className="mt-1 text-[0.92rem] italic text-[color-mix(in_srgb,var(--ink)_90%,black)]">
+                {item.company} | {item.meta}
+              </p>
+              <ul className="mt-4 grid gap-2">
+                {item.bullets.map((bullet) => (
+                  <li key={bullet} className="italic leading-[1.8]">
+                    {bullet}
+                  </li>
+                ))}
+              </ul>
+            </article>
+          ))}
+        </div>
+      </section>
+
       {/* Education & Study */}
       <section id="education" className="grid grid-cols-[0.75rem_minmax(0,1fr)_0.75rem] pb-24 sm:grid-cols-[1rem_minmax(0,1fr)_1rem] sm:pb-28 md:grid-cols-[minmax(1.5rem,1fr)_minmax(0,65ch)_minmax(1.5rem,1fr)] md:pb-32">
         <InkBleedDivider />
@@ -181,76 +308,37 @@ export default function PortfolioExperience({
         </div>
       </section>
 
-      {/* Certificates */}
-      <section id="certificates" className="grid grid-cols-[0.75rem_minmax(0,1fr)_0.75rem] pb-24 sm:grid-cols-[1rem_minmax(0,1fr)_1rem] sm:pb-28 md:grid-cols-[minmax(1.5rem,1fr)_minmax(0,65ch)_minmax(1.5rem,1fr)] md:pb-32">
+      <CertificatesSection certificates={certificates} />
+
+      {/* Achievements */}
+      <section id="achievements" className="grid grid-cols-[0.75rem_minmax(0,1fr)_0.75rem] pb-24 sm:grid-cols-[1rem_minmax(0,1fr)_1rem] sm:pb-28 md:grid-cols-[minmax(1.5rem,1fr)_minmax(0,65ch)_minmax(1.5rem,1fr)] md:pb-32">
         <InkBleedDivider />
 
-        <header
+        <article
           data-reveal
-          className="col-start-2 mb-6 text-center sm:mb-8 will-change-[transform,opacity]"
+          className="col-start-2 border-y border-[color-mix(in_srgb,var(--ink)_22%,transparent)] py-10 text-center sm:py-12 will-change-[transform,opacity]"
         >
           <p className="emphasis-small-caps text-[0.76rem] italic tracking-[0.16em] text-(--accent)">
-            Credentials
+            Achievements
           </p>
           <h2
             className="mt-3 text-[clamp(1.4rem,4vw,2.4rem)] leading-[1.2]"
             style={{ fontFamily: "var(--font-display), 'Times New Roman', serif" }}
           >
-            Certificates
+            Recognition and Momentum
           </h2>
-        </header>
-
-        <div className="col-start-2 mb-12 grid gap-4">
-          {certificates.length ? (
-            certificates.map((certificate) => (
-              <article
-                key={certificate.id}
-                data-reveal
-                className="rounded-sm border border-[color-mix(in_srgb,var(--ink)_18%,transparent)] bg-[color-mix(in_srgb,var(--parchment)_96%,white)] p-4 will-change-[transform,opacity] sm:p-5"
-              >
-                <div className="relative mb-4 aspect-3/2 overflow-hidden rounded-sm">
-                  <Image
-                    src={certificate.imageUrl ?? certificateImageSrc(certificate.id)}
-                    alt={`${certificate.title} certificate artwork`}
-                    fill
-                    sizes="(max-width: 640px) 100vw, 720px"
-                    className="object-cover"
-                  />
-                </div>
-                <p className="emphasis-small-caps mb-2 text-[0.72rem] italic tracking-[0.15em] text-(--accent)">
-                  {certificate.issuer}
-                </p>
-                <h3
-                  className="text-[1.15rem] sm:text-[1.25rem]"
-                  style={{ fontFamily: "var(--font-display), 'Times New Roman', serif" }}
-                >
-                  {certificate.title}
-                </h3>
-                <a
-                  href={certificate.verificationUrl}
-                  target="_blank"
-                  rel="noreferrer noopener"
-                  className="emphasis-small-caps mt-3 inline-block text-[0.66rem] italic tracking-[0.16em] text-(--accent) underline-offset-4 hover:underline"
-                >
-                  Verify Certificate
-                </a>
-              </article>
-            ))
-          ) : (
-            <article
-              data-reveal
-              className="border-y border-[color-mix(in_srgb,var(--ink)_22%,transparent)] py-8 text-center"
-            >
-              <p className="italic leading-[1.9]">
-                Certificates will appear once portfolio data is seeded.
-              </p>
-            </article>
-          )}
-        </div>
+          <ul className="mx-auto mt-6 grid max-w-[58ch] gap-3 text-left">
+            {achievements.map((achievement) => (
+              <li key={achievement} className="italic leading-[1.85]">
+                {achievement}
+              </li>
+            ))}
+          </ul>
+        </article>
       </section>
 
-      {/* Closing Note */}
-      <section className="grid grid-cols-[0.75rem_minmax(0,1fr)_0.75rem] pb-24 sm:grid-cols-[1rem_minmax(0,1fr)_1rem] sm:pb-28 md:grid-cols-[minmax(1.5rem,1fr)_minmax(0,65ch)_minmax(1.5rem,1fr)] md:pb-32">
+      {/* Contact */}
+      <section id="contact" className="grid grid-cols-[0.75rem_minmax(0,1fr)_0.75rem] pb-24 sm:grid-cols-[1rem_minmax(0,1fr)_1rem] sm:pb-28 md:grid-cols-[minmax(1.5rem,1fr)_minmax(0,65ch)_minmax(1.5rem,1fr)] md:pb-32">
         <InkBleedDivider />
 
         <article
@@ -258,12 +346,31 @@ export default function PortfolioExperience({
           className="col-start-2 border-y border-[color-mix(in_srgb,var(--ink)_22%,transparent)] py-12 text-center sm:py-14 will-change-[transform,opacity]"
         >
           <p className="emphasis-small-caps text-[0.76rem] italic tracking-[0.16em] text-(--accent)">
-            Closing Note
+            Contact
           </p>
+          <h2
+            className="mt-3 text-[clamp(1.4rem,4vw,2.4rem)] leading-[1.2]"
+            style={{ fontFamily: "var(--font-display), 'Times New Roman', serif" }}
+          >
+            {"Let's Build Something"}
+          </h2>
           <p className="mx-auto mt-4 max-w-[52ch] px-2 text-[clamp(1rem,1.7vw,1.25rem)] italic leading-[1.95] sm:px-0">
-            Every interface is treated as an editorial artifact where pace, structure,
-            and motion reinforce meaning instead of distracting from it.
+            Open to internship opportunities from July 2026 in Data Science, AI/ML,
+            and Full-Stack Development.
           </p>
+          <div className="mt-7 flex flex-wrap items-center justify-center gap-4">
+            {profileLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                target={link.href.startsWith("http") ? "_blank" : undefined}
+                rel={link.href.startsWith("http") ? "noreferrer noopener" : undefined}
+                className="emphasis-small-caps text-[0.66rem] text-(--accent) underline-offset-4 hover:underline"
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
         </article>
       </section>
     </main>

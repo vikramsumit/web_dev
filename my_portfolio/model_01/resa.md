@@ -1,0 +1,1 @@
+ npx -y -p node@22 node ./node_modules/next/dist/bin/next dev
